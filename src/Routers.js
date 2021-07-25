@@ -3,6 +3,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Spinner from './modules/Spinner';
 import Dashboard from './modules/superadmin/index';
+import AddSchool from './modules/superadmin/AddSchool';
+import AddAdmin from './modules/superadmin/AddSchoolAdmin';
+
 import Login from './modules/Login';
 import Logout from './modules/Logout';
 import Error404 from './modules/Error404';
@@ -14,6 +17,8 @@ class Routers extends Component {
       <Suspense fallback={<Spinner/>}>
         <Switch>
           <Route exact path="/dashboard" component={ Dashboard } />
+          <Route path="/add-new/AddSchool" component={AddSchool} />
+          <Route path="/add-new/AddAdmin" component={AddAdmin} />
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Login} />
