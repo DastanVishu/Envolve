@@ -65,21 +65,19 @@ class Sidebar extends Component {
               </Link>
             </li>
             
-            <li className="nav-item nav-category">Add New</li>
-            <li className={ this.isPathActive('/add-new') ? 'nav-item active' : 'nav-item' }>
-              <div className={ this.state.formElementsMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('formElementsMenuOpen') } data-toggle="collapse">
+            <li className="nav-item nav-category">School</li>
+            <li className={ this.isPathActive('/setupschool') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/setupschool">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span className="menu-title">School / Admin</span>
-                <i className="menu-arrow"></i>
-              </div>
-              <Collapse in={ this.state.formElementsMenuOpen }>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item"> <Link className={ this.isPathActive('/add-new/AddSchool') ? 'nav-link active' : 'nav-link' } to="/add-new/AddSchool">Add School</Link></li>
-                  <li className="nav-item"> <Link className={ this.isPathActive('/add-new/AddAdmin') ? 'nav-link active' : 'nav-link' } to="/add-new/AddAdmin">Add Admin</Link></li>
-                </ul>
-              </Collapse>
+                <span className="menu-title">Setup New School</span>
+              </Link>
             </li>
-            
+            <li className={ this.isPathActive('/manageschool') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/manageschool">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Schools</span>
+              </Link>
+            </li>
 
             {/* <li className="nav-item sidebar-user-actions">
               <div className="sidebar-user-menu">

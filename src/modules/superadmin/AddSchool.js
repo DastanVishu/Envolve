@@ -33,13 +33,89 @@ class AddSchool extends Component {
               <div className="col-12 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
-                    <h4 className="card-title">Add School&Admin</h4>
+                    <h4 className="card-title">Setup School</h4>
                     <p className="card-description">School Info</p>
                     <form className="forms-sample">
                         <Form.Group>
                             <label htmlFor="exampleInputName1">School Name</label>
                             <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
                         </Form.Group>
+                              
+                        <Form.Group>  
+                          <label>Country</label>
+                          <select className="form-control">
+                            <option>India</option>
+                            <option>Italy</option>
+                            <option>Russia</option>
+                            <option>Britain</option>
+                          </select>
+                        </Form.Group>
+
+                        <Form.Group>  
+                          <label>State</label>
+                          <select className="form-control">
+                            <option>Punjab</option>
+                            <option>Bihar</option>
+                          </select>
+                        </Form.Group>
+
+                        <Form.Group>
+                            <label htmlFor="exampleInputName12">Pin code</label>
+                            <Form.Control type="text" className="form-control" id="exampleInputName12" placeholder="Pin code" />
+                        </Form.Group>
+
+                        <Form.Group>
+                            <label htmlFor="exampleInputCity1">City</label>
+                            <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Location" />
+                        </Form.Group>
+                        <Form.Group>
+                            <label htmlFor="exampleTextarea1">Address</label>
+                            <textarea className="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        </Form.Group>
+
+                        {/* ===================================== principal ================================== */}
+                        <h4 className="card-title">Principal info</h4>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">First Name</label>
+                                <div className="col-sm-9">
+                                    <Form.Control  type="text" />
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                    <label className="col-sm-3 col-form-label">Last Name</label>
+                                    <div className="col-sm-9">
+                                        <Form.Control type="text" />
+                                    </div>
+                                </Form.Group>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Mobile No.</label>
+                                <div className="col-sm-9">
+                                    <Form.Control  type="number" />
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                    <label className="col-sm-3 col-form-label">Email</label>
+                                    <div className="col-sm-9">
+                                        <Form.Control type="email" />
+                                    </div>
+                                </Form.Group>
+                            </div>
+                        </div>
+                        {/* ===================================== /principal/ ================================== */}
+
+                        {/* ===================================== logo/color scheme for schools ====================================== */}
+                        
+                        <h4 className="card-title">logo/color scheme for school</h4>
                         <Form.Group>
                             <label>School logo</label>
                             <div className="custom-file">
@@ -48,17 +124,11 @@ class AddSchool extends Component {
                             </div>
                         </Form.Group>
                         <Form.Group>
-                            <label htmlFor="exampleInputCity1">City</label>
-                            <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Location" />
+                            <label htmlFor="exampleInputName1">color code #</label>
+                            <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
                         </Form.Group>
-                        <Form.Group>
-                            <label htmlFor="exampleInputCity1">Address</label>
-                            <Form.Control type="text" className="form-control" id="exampleAddress1" placeholder="Address..." />
-                        </Form.Group>
-                        <Form.Group>
-                            <label htmlFor="exampleTextarea1">Textarea</label>
-                            <textarea className="form-control" id="exampleTextarea1" rows="4"></textarea>
-                        </Form.Group>
+                        {/* ===================================== / logo/color scheme for schools / ====================================== */}
+
                         {/* ========================================================== */}
                         <h4 className="card-title">Admin Info</h4>
                         <div className="row">
@@ -79,135 +149,42 @@ class AddSchool extends Component {
                                 </Form.Group>
                             </div>
                         </div>
-
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Gender</label>
-                                    <div className="col-sm-9">
-                                        <select className="form-control">
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                        </select>
-                                    </div>
+                                <label className="col-sm-3 col-form-label">Mobile No.</label>
+                                <div className="col-sm-9">
+                                    <Form.Control  type="number" />
+                                </div>
                                 </Form.Group>
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Date of Birth</label>
+                                    <label className="col-sm-3 col-form-label">Email</label>
                                     <div className="col-sm-9">
-                                        <DatePicker className="form-control w-100"
-                                            selected={this.state.startDate}
-                                            onChange={this.handleChange}
-                                        />
+                                        <Form.Control type="email" />
                                     </div>
                                 </Form.Group>
                             </div>
                         </div>
-
                         <div className="row">
-                            <div className="col-md-6">
-                                <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Category</label>
-                                    <div className="col-sm-9">
-                                        <select className="form-control">
-                                            <option>Super Admin</option>
-                                            <option>Admin</option>
-                                        </select>
-                                    </div>
-                                </Form.Group>
-                            </div>
-                            <div className="col-md-6">
-                                <Form.Group>
-                                    <label className="col-sm-3 col-form-label">Admin Photo</label>
-                                    <div className="custom-file col-sm-9">
-                                        <Form.Control type="file" className="form-control visibility-hidden" id="customFileLang1" lang="es"/>
-                                        <label className="custom-file-label" htmlFor="customFileLang1">Upload image</label>
-                                    </div>
-                                </Form.Group>
-                            </div>
+                          <div className="col-md-6">
+                            <Form.Group className="row">
+                              <label className="col-sm-3 col-form-label">UserName</label>
+                              <div className="col-sm-9">
+                              <Form.Control type="text"/>
+                              </div>
+                            </Form.Group>
+                          </div>
+                          <div className="col-md-6">
+                            <Form.Group className="row">
+                              <label className="col-sm-3 col-form-label">Password</label>
+                              <div className="col-sm-9">
+                              <Form.Control type="password"/>
+                              </div>
+                            </Form.Group>
+                          </div>
                         </div>
-
-                      <p className="card-description"> Address </p>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">Address 1</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">State 1</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">Address 2</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">Postcode</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">City</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                        <div className="col-md-6">
-                          <Form.Group className="row">  
-                            <label className="col-sm-3 col-form-label">Country</label>
-                            <div className="col-sm-9">
-                              <select className="form-control">
-                                <option>India</option>
-                                <option>Italy</option>
-                                <option>Russia</option>
-                                <option>Britain</option>
-                              </select>
-                            </div>
-                          </Form.Group>
-                        </div>
-                      </div>
-          
-                      <p className="card-description"> Loing info </p>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">UserName</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="text"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                        <div className="col-md-6">
-                          <Form.Group className="row">
-                            <label className="col-sm-3 col-form-label">Password</label>
-                            <div className="col-sm-9">
-                            <Form.Control type="password"/>
-                            </div>
-                          </Form.Group>
-                        </div>
-                      </div>
 
                         {/* ========================================================== */}
                       <button type="submit" className="btn btn-primary mr-2">Submit</button>
