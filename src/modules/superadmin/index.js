@@ -158,11 +158,11 @@ export class Dashboard extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card">
+                    {/* <div className="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card">
                       <div className="card">
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Admin</h5>
-                          <h2 className="mb-4 text-dark font-weight-bold">18</h2>
+                          <h2 className="mb-4 text-dark font-weight-bold">18</h2> */}
                             {/* <div className="px-4 d-flex align-items-center">
                               <svg width="0" height="0">
                                 <defs>
@@ -181,9 +181,9 @@ export class Dashboard extends Component {
                             </div>                               */}
                           {/* <p className="mt-4 mb-0">Active</p>
                           <h3 className="mb-0 font-weight-bold mt-2 text-dark">90%</h3> */}
-                        </div>
+                        {/* </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                       <div className="card">
                         <div className="card-body text-center">
