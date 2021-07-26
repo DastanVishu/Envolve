@@ -105,11 +105,11 @@ class ManageSchool extends Component {
     return (
       <div>
         <div className="page-header">
-          <h3 className="page-title"> Tables </h3>
+          <h3 className="page-title"> #Schools </h3>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href="!#" onClick={event => event.preventDefault()}>Tables</a></li>
-              <li className="breadcrumb-item active" aria-current="page">School Table</li>
+              <li className="breadcrumb-item active" aria-current="page">Schools Table</li>
             </ol>
           </nav>
         </div>
