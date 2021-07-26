@@ -188,7 +188,27 @@ class AddSchool extends Component {
                           </Form.Group>
                         </div>
                       </div>
-                  
+          
+                      <p className="card-description"> Loing info </p>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <Form.Group className="row">
+                            <label className="col-sm-3 col-form-label">UserName</label>
+                            <div className="col-sm-9">
+                            <Form.Control type="text"/>
+                            </div>
+                          </Form.Group>
+                        </div>
+                        <div className="col-md-6">
+                          <Form.Group className="row">
+                            <label className="col-sm-3 col-form-label">Password</label>
+                            <div className="col-sm-9">
+                            <Form.Control type="password"/>
+                            </div>
+                          </Form.Group>
+                        </div>
+                      </div>
+
                         {/* ========================================================== */}
                       <button type="submit" className="btn btn-primary mr-2">Submit</button>
                       <button className="btn btn-light">Cancel</button>
