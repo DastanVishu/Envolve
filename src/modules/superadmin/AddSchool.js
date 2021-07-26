@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import { Form } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
-import bsCustomFileInput from 'bs-custom-file-input'
+import bsCustomFileInput from 'bs-custom-file-input';
+import { HexColorPicker } from "react-colorful";
+// import "react-colorful/dist/index.css";
 
 class AddSchool extends Component {
     state = {
-        startDate: new Date()
+        startDate: new Date(),
+        color: '#ffffff',
+        fontcolor: '#ffffff',
       };
      
       handleChange = date => {
@@ -16,6 +20,7 @@ class AddSchool extends Component {
       componentDidMount() {
         bsCustomFileInput.init()
         }
+
       render() {
         return (
           <div>
@@ -40,34 +45,50 @@ class AddSchool extends Component {
                             <label htmlFor="exampleInputName1">School Name</label>
                             <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
                         </Form.Group>
-                              
-                        <Form.Group>  
-                          <label>Country</label>
-                          <select className="form-control">
-                            <option>India</option>
-                            <option>Italy</option>
-                            <option>Russia</option>
-                            <option>Britain</option>
-                          </select>
-                        </Form.Group>
-
-                        <Form.Group>  
-                          <label>State</label>
-                          <select className="form-control">
-                            <option>Punjab</option>
-                            <option>Bihar</option>
-                          </select>
-                        </Form.Group>
-
-                        <Form.Group>
-                            <label htmlFor="exampleInputName12">Pin code</label>
-                            <Form.Control type="text" className="form-control" id="exampleInputName12" placeholder="Pin code" />
-                        </Form.Group>
-
-                        <Form.Group>
-                            <label htmlFor="exampleInputCity1">City</label>
-                            <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Location" />
-                        </Form.Group>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Country</label>
+                                <div className="col-sm-9">
+                                  <select className="form-control">
+                                    <option>India</option>
+                                    <option>Italy</option>
+                                    <option>Russia</option>
+                                    <option>Britain</option>
+                                  </select>
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">State</label>
+                                  <div className="col-sm-9">
+                                    <select className="form-control">
+                                      <option>Punjab</option>
+                                      <option>Bihar</option>
+                                    </select>
+                                  </div>
+                              </Form.Group>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">City</label>
+                                  <div className="col-sm-9">
+                                    <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Location" />
+                                  </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">Pin code</label>
+                                  <div className="col-sm-9">
+                                    <Form.Control type="text" className="form-control" id="exampleInputName12" placeholder="Pin code" />
+                                  </div>
+                              </Form.Group>
+                            </div>
+                        </div>
                         <Form.Group>
                             <label htmlFor="exampleTextarea1">Address</label>
                             <textarea className="form-control" id="exampleTextarea1" rows="4"></textarea>
@@ -123,10 +144,27 @@ class AddSchool extends Component {
                             <label className="custom-file-label" htmlFor="customFileLang">Upload image</label>
                             </div>
                         </Form.Group>
-                        <Form.Group>
-                            <label htmlFor="exampleInputName1">color code #</label>
-                            <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
-                        </Form.Group>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">color code #</label>
+                                <div className="col-sm-9">
+                                  <Form.Control type="text" className="form-control" id="exampleInputName1" value={this.state.color} placeholder="Name" />
+                                  <HexColorPicker color={this.state.color} onChange={(e) => this.setState({color: e})} />
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                    <label className="col-sm-3 col-form-label">font color code #</label>
+                                    <div className="col-sm-9">
+                                      <Form.Control type="text" className="form-control" id="exampleInputName1" value={this.state.fontcolor} placeholder="Name" />
+                                      <HexColorPicker color={this.state.fontcolor} onChange={(e) => this.setState({fontcolor: e})} />
+                                    </div>
+                                </Form.Group>
+                            </div>
+                        </div>
+
                         {/* ===================================== / logo/color scheme for schools / ====================================== */}
 
                         {/* ========================================================== */}

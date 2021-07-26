@@ -66,7 +66,7 @@ export class Dashboard extends Component {
   render () {
     return (
       <div>
-        <div className="row proBanner">
+        {/* <div className="row proBanner">
           <div className="col-12">
             <span className="d-flex align-items-center purchase-popup">
               <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
@@ -74,7 +74,7 @@ export class Dashboard extends Component {
               <i className="mdi mdi-close bannerClose" onClick={this.toggleProBanner}></i>
             </span>
           </div>
-        </div>
+        </div> */}
         <div>
           <div className="d-sm-flex justify-content-between align-items-start">
             <h2 className="text-dark font-weight-bold mb-2"> Dashboard </h2>
@@ -111,7 +111,7 @@ export class Dashboard extends Component {
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">School</h5>
                           <h2 className="mb-4 text-dark font-weight-bold">9</h2>
-                          <div className="px-4 d-flex align-items-center">
+                          {/* <div className="px-4 d-flex align-items-center">
                             <svg width="0" height="0">
                               <defs>
                                 <linearGradient id="progress-order">
@@ -126,7 +126,7 @@ export class Dashboard extends Component {
                                 <i className="mdi mdi-lightbulb icon-md absolute-center text-dark"></i>
                               </div>
                             </CircularProgressbarWithChildren>
-                          </div>
+                          </div> */}
                           {/* <p className="mt-4 mb-0">Completed</p>
                           <h3 className="mb-0 font-weight-bold mt-2 text-dark">5</h3> */}
                         </div>
@@ -137,7 +137,7 @@ export class Dashboard extends Component {
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Teacher</h5>
                           <h2 className="mb-4 text-dark font-weight-bold">100</h2>
-                            <div className="px-4 d-flex align-items-center">
+                            {/* <div className="px-4 d-flex align-items-center">
                               <svg width="0" height="0">
                                 <defs>
                                   <linearGradient id="progress-visitors" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -152,7 +152,7 @@ export class Dashboard extends Component {
                                 <i className="mdi mdi-account-circle icon-md absolute-center text-dark"></i>
                               </div>
                             </CircularProgressbarWithChildren>
-                            </div>
+                            </div> */}
                           {/* <p className="mt-4 mb-0">Present Teacher</p>
                           <h3 className="mb-0 font-weight-bold mt-2 text-dark">90%</h3> */}
                         </div>
@@ -163,7 +163,7 @@ export class Dashboard extends Component {
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Admin</h5>
                           <h2 className="mb-4 text-dark font-weight-bold">18</h2>
-                            <div className="px-4 d-flex align-items-center">
+                            {/* <div className="px-4 d-flex align-items-center">
                               <svg width="0" height="0">
                                 <defs>
                                   <linearGradient id="progress-impressions" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -178,7 +178,7 @@ export class Dashboard extends Component {
                                   <i className="mdi mdi-eye icon-md absolute-center text-dark"></i>
                                 </div>
                               </CircularProgressbarWithChildren>
-                            </div>                              
+                            </div>                               */}
                           {/* <p className="mt-4 mb-0">Active</p>
                           <h3 className="mb-0 font-weight-bold mt-2 text-dark">90%</h3> */}
                         </div>
@@ -189,7 +189,7 @@ export class Dashboard extends Component {
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Student</h5>
                           <h2 className="mb-4 text-dark font-weight-bold">15k</h2>
-                            <div className="px-4 d-flex align-items-center">
+                            {/* <div className="px-4 d-flex align-items-center">
                               <svg width="0" height="0">
                                 <defs>
                                   <linearGradient id="progress-followers" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -204,7 +204,7 @@ export class Dashboard extends Component {
                                   <i className="mdi mdi-eye icon-md absolute-center text-dark"></i>
                                 </div>
                               </CircularProgressbarWithChildren>
-                            </div>  
+                            </div>   */}
                           {/* <p className="mt-4 mb-0">Present</p>
                           <h3 className="mb-0 font-weight-bold mt-2 text-dark">85%</h3> */}
                         </div>
