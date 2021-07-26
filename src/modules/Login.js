@@ -22,9 +22,9 @@ export class Login extends Component {
                   <Form.Group className="d-flex search-field">
                     <Form.Control type="password" placeholder="Password" size="lg" className="h-auto" />
                   </Form.Group>
-                  <div className="mt-3">
+                  {/* <div className="mt-3">
                     <Link className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" to="/dashboard">SIGN IN</Link>
-                  </div>
+                  </div> */}
                   <div className="mt-3">
                     <Link className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" to="/dashboard">Skip login </Link>
                   </div>
