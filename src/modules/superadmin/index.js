@@ -106,7 +106,7 @@ export class Dashboard extends Component {
               <div className="justify-content-between align-items-center tab-transparent">
                 <div>
                   <div className="row">
-                    <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                    <div className="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
                       <div className="card">
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">School</h5>
@@ -132,7 +132,7 @@ export class Dashboard extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                    <div className="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
                       <div className="card">
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Teacher</h5>
@@ -162,8 +162,8 @@ export class Dashboard extends Component {
                       <div className="card">
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Admin</h5>
-                          <h2 className="mb-4 text-dark font-weight-bold">18</h2> */}
-                            {/* <div className="px-4 d-flex align-items-center">
+                          <h2 className="mb-4 text-dark font-weight-bold">18</h2>
+                            <div className="px-4 d-flex align-items-center">
                               <svg width="0" height="0">
                                 <defs>
                                   <linearGradient id="progress-impressions" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -178,13 +178,14 @@ export class Dashboard extends Component {
                                   <i className="mdi mdi-eye icon-md absolute-center text-dark"></i>
                                 </div>
                               </CircularProgressbarWithChildren>
-                            </div>                               */}
-                          {/* <p className="mt-4 mb-0">Active</p>
-                          <h3 className="mb-0 font-weight-bold mt-2 text-dark">90%</h3> */}
-                        {/* </div>
+                            </div>                              
+                          <p className="mt-4 mb-0">Active</p>
+                          <h3 className="mb-0 font-weight-bold mt-2 text-dark">90%</h3>
+                        </div>
                       </div>
-                    </div> */}
-                    <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                    </div>
+                     */}
+                    <div className="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
                       <div className="card">
                         <div className="card-body text-center">
                           <h5 className="mb-2 text-dark font-weight-normal">Student</h5>
