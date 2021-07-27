@@ -39,14 +39,6 @@ class ManageSchool extends Component {
   renderAction = (props, index) => {
     
     return(<span>
-      
-      <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
-        <label className="form-check-label">
-          <input type="checkbox" className="form-check-input" defaultChecked />
-          <i className="input-helper"></i>
-        </label>
-      </span>
-
       <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
         <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
       </button>
@@ -64,9 +56,29 @@ class ManageSchool extends Component {
 
     </span>)
   }
+  DeactiveAction = (props, index) => {
+    
+    return(
+      <span>  
+        <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
+          <label className="form-check-label">
+            <input type="checkbox" className="form-check-input" defaultChecked />
+            <i className="input-helper"></i>
+          </label>
+        </span>
+      </span>
+    )
+  }
 
   render() {
     const fields = [
+      {
+        name: "Deactive",
+        displayName: "",
+        inputFilterable: true,
+        exactFilterable: true,
+        render: this.DeactiveAction,
+      },
       {
         name: "schoolName",
         displayName: "School ",
@@ -106,12 +118,6 @@ class ManageSchool extends Component {
       <div>
         <div className="page-header">
           <h3 className="page-title"> #Schools </h3>
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="!#" onClick={event => event.preventDefault()}>Tables</a></li>
-              <li className="breadcrumb-item active" aria-current="page">Schools Table</li>
-            </ol>
-          </nav>
         </div>
         <div className="row">
           
@@ -121,79 +127,17 @@ class ManageSchool extends Component {
                 <h4 className="card-title">School List</h4>
                 
                 <FilterableTable
-                      namespace="school_records"
-                      initialSort="schoolName"
-                      data={this.state.records}
-                      fields={fields}
-                      topPagerVisible={false}
-                      pageSize={10}
-                      pageSizes={[10, 20, 50, 100]}
-                      autofocusFilter={true}
-                      noRecordsMessage="There are no School Records"
-                      noFilteredRecordsMessage="No Recording match your filters!"
-                    />
-                
-                {/* <p className="card-description"> Add className <code>.table-dark</code>
-                </p> */}
-                {/* <div className="table-responsive">
-                  <table className="table table-dark">
-                    <thead>
-                      <tr>
-                        <th> # </th>
-                        <th> School name </th>
-                        <th> Edit Details </th>
-                        <th> Active/Deactivate </th>
-                        <th> login Access </th>
-                        <th> Password </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td> 1 </td>
-                        <td> Herman Beck </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <button type="button" className="btn btn-outline-light">
-                            <i className="mdi mdi-key-variant"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td> 2 </td>
-                        <td> Beck </td>
-                        <td>
-                          <button type="button" className="btn btn-outline-warning">
-                            <i className="mdi mdi-border-color"></i>
-                          </button>
-                        </td>
-                        <td>
-                        <div className="form-check form-check-danger">
-                          <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" /> Deactivate
-                            <i className="input-helper"></i>
-                          </label>
-                        </div>
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                </div>
-               */}
+                  namespace="school_records"
+                  initialSort="schoolName"
+                  data={this.state.records}
+                  fields={fields}
+                  topPagerVisible={false}
+                  pageSize={10}
+                  pageSizes={[10, 20, 50, 100]}
+                  autofocusFilter={true}
+                  noRecordsMessage="There are no School Records"
+                  noFilteredRecordsMessage="No Recording match your filters!"
+                />
               </div>
             </div>
           </div>

@@ -10,6 +10,10 @@ class AddSchool extends Component {
         startDate: new Date(),
         color: '#ffffff',
         fontcolor: '#ffffff',
+        startstyle: {
+          color: 'red',
+          fontSize: '14px'
+        }
       };
      
       handleChange = date => {
@@ -25,30 +29,23 @@ class AddSchool extends Component {
         return (
           <div>
             <div className="page-header">
-              <h3 className="page-title"> Form </h3>
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item"><a href="!#" onClick={event => event.preventDefault()}>Forms</a></li>
-                  <li className="breadcrumb-item active" aria-current="page">School&Admin</li>
-                </ol>
-              </nav>
+              <h3 className="page-title"> School </h3>
             </div>
             <div className="row">
 
               <div className="col-12 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
-                    <h4 className="card-title">Setup School</h4>
-                    <p className="card-description">School Info</p>
+                    <h4 className="card-title">School Info</h4>
                     <form className="forms-sample">
                         <Form.Group>
-                            <label htmlFor="exampleInputName1">School Name</label>
+                            <label htmlFor="exampleInputName1">School Name <span style={this.state.startstyle}>*</span> </label>
                             <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Name" />
                         </Form.Group>
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">Country</label>
+                                <label className="col-sm-3 col-form-label">Country <span style={this.state.startstyle}>*</span></label>
                                 <div className="col-sm-9">
                                   <select className="form-control">
                                     <option>India</option>
@@ -61,7 +58,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                               <Form.Group className="row">
-                                  <label className="col-sm-3 col-form-label">State</label>
+                                  <label className="col-sm-3 col-form-label">State <span style={this.state.startstyle}>*</span></label>
                                   <div className="col-sm-9">
                                     <select className="form-control">
                                       <option>Punjab</option>
@@ -74,7 +71,7 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                  <label className="col-sm-3 col-form-label">City</label>
+                                  <label className="col-sm-3 col-form-label">City <span style={this.state.startstyle}>*</span></label>
                                   <div className="col-sm-9">
                                     <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Location" />
                                   </div>
@@ -82,7 +79,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                               <Form.Group className="row">
-                                  <label className="col-sm-3 col-form-label">Pin code</label>
+                                  <label className="col-sm-3 col-form-label">Pin code <span style={this.state.startstyle}>*</span></label>
                                   <div className="col-sm-9">
                                     <Form.Control type="text" className="form-control" id="exampleInputName12" placeholder="Pin code" />
                                   </div>
@@ -90,7 +87,7 @@ class AddSchool extends Component {
                             </div>
                         </div>
                         <Form.Group>
-                            <label htmlFor="exampleTextarea1">Address</label>
+                            <label htmlFor="exampleTextarea1">Address <span style={this.state.startstyle}>*</span></label>
                             <textarea className="form-control" id="exampleTextarea1" rows="4"></textarea>
                         </Form.Group>
 
@@ -99,7 +96,7 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">First Name</label>
+                                <label className="col-sm-3 col-form-label">First Name <span style={this.state.startstyle}>*</span></label>
                                 <div className="col-sm-9">
                                     <Form.Control  type="text" />
                                 </div>
@@ -107,7 +104,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Last Name</label>
+                                    <label className="col-sm-3 col-form-label">Last Name <span style={this.state.startstyle}>*</span></label>
                                     <div className="col-sm-9">
                                         <Form.Control type="text" />
                                     </div>
@@ -117,7 +114,7 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">Mobile No.</label>
+                                <label className="col-sm-3 col-form-label">Mobile No. <span style={this.state.startstyle}>*</span></label>
                                 <div className="col-sm-9">
                                     <Form.Control  type="number" />
                                 </div>
@@ -125,7 +122,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Email</label>
+                                    <label className="col-sm-3 col-form-label">Email <span style={this.state.startstyle}>*</span></label>
                                     <div className="col-sm-9">
                                         <Form.Control type="email" />
                                     </div>
@@ -138,7 +135,7 @@ class AddSchool extends Component {
                         
                         <h4 className="card-title">logo/color scheme for school</h4>
                         <Form.Group>
-                            <label>School logo</label>
+                            <label>School logo <span style={this.state.startstyle}>*</span></label>
                             <div className="custom-file">
                             <Form.Control type="file" className="form-control visibility-hidden" id="customFileLang" lang="es"/>
                             <label className="custom-file-label" htmlFor="customFileLang">Upload image</label>
@@ -147,8 +144,8 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">color code #</label>
-                                <div className="col-sm-9">
+                                <label className="col-sm-4 col-form-label">Background color <span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-8">
                                   <Form.Control type="text" className="form-control" id="exampleInputName1" value={this.state.color} placeholder="Name" />
                                   <HexColorPicker color={this.state.color} onChange={(e) => this.setState({color: e})} />
                                 </div>
@@ -156,8 +153,8 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">font color code #</label>
-                                    <div className="col-sm-9">
+                                    <label className="col-sm-4 col-form-label">Font color <span style={this.state.startstyle}>*</span></label>
+                                    <div className="col-sm-8">
                                       <Form.Control type="text" className="form-control" id="exampleInputName1" value={this.state.fontcolor} placeholder="Name" />
                                       <HexColorPicker color={this.state.fontcolor} onChange={(e) => this.setState({fontcolor: e})} />
                                     </div>
@@ -172,7 +169,7 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">First Name</label>
+                                <label className="col-sm-3 col-form-label">First Name <span style={this.state.startstyle}>*</span></label>
                                 <div className="col-sm-9">
                                     <Form.Control  type="text" />
                                 </div>
@@ -180,7 +177,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Last Name</label>
+                                    <label className="col-sm-3 col-form-label">Last Name <span style={this.state.startstyle}>*</span></label>
                                     <div className="col-sm-9">
                                         <Form.Control type="text" />
                                     </div>
@@ -190,7 +187,7 @@ class AddSchool extends Component {
                         <div className="row">
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                <label className="col-sm-3 col-form-label">Mobile No.</label>
+                                <label className="col-sm-3 col-form-label">Mobile No. <span style={this.state.startstyle}>*</span></label>
                                 <div className="col-sm-9">
                                     <Form.Control  type="number" />
                                 </div>
@@ -198,7 +195,7 @@ class AddSchool extends Component {
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="row">
-                                    <label className="col-sm-3 col-form-label">Email</label>
+                                    <label className="col-sm-3 col-form-label">Email <span style={this.state.startstyle}>*</span></label>
                                     <div className="col-sm-9">
                                         <Form.Control type="email" />
                                     </div>
@@ -208,7 +205,7 @@ class AddSchool extends Component {
                         <div className="row">
                           <div className="col-md-6">
                             <Form.Group className="row">
-                              <label className="col-sm-3 col-form-label">UserName</label>
+                              <label className="col-sm-3 col-form-label">UserName <span style={this.state.startstyle}>*</span></label>
                               <div className="col-sm-9">
                               <Form.Control type="text"/>
                               </div>
@@ -216,7 +213,7 @@ class AddSchool extends Component {
                           </div>
                           <div className="col-md-6">
                             <Form.Group className="row">
-                              <label className="col-sm-3 col-form-label">Password</label>
+                              <label className="col-sm-3 col-form-label">Password <span style={this.state.startstyle}>*</span></label>
                               <div className="col-sm-9">
                               <Form.Control type="password"/>
                               </div>
