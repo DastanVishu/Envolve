@@ -7,23 +7,6 @@ import FilterableTable from 'react-filterable-table';
 import Pager from 'react-pager';
 import { Tooltip } from "reactstrap";
 import MaterialTable from "material-table";
-import { 
-  AddBox,
-  ArrowDownward,
-  Check,
-  Clear,
-  DeleteOutline,
-  ChevronRight,
-  Edit,
-  SaveAlt,
-  FilterList,
-  FirstPage,
-  LastPage,
-  ChevronLeft,
-  Search,
-  Remove,
-  ViewColumn
-} from "@material-ui/icons";
 
 class ManageSchool extends Component {
   constructor(props){
@@ -36,25 +19,6 @@ class ManageSchool extends Component {
   }
 
   componentDidMount(){
-    const tableIcons = {
-      Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-      Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-      Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-      Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-      DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-      Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-      Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-      Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-      FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-      LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-      NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-      PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-      ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-      Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-      SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
-      ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-      ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
-    };
     let re = [
       {
         _id: 1,
@@ -71,7 +35,7 @@ class ManageSchool extends Component {
         state:'Punjab'
       }
     ];
-    this.setState({records: re, tableIcons})
+    this.setState({records: re})
   }
 
   renderAction = (props, index) => {
@@ -166,7 +130,6 @@ class ManageSchool extends Component {
                 
               <MaterialTable
               title="School List"
-              icons={this.state.tableIcons}
               data={this.state.records}
               columns={fields}
               options={{ search: true, paging: true, filtering: true, exportButton: true }}

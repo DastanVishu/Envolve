@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Environment
 
 node version 14.17.3
-react js 16.9.0
+react js version 16.9.0
+npm version 6.14.13
 
 ## Available Scripts
 
