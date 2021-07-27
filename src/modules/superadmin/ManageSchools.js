@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, forwardRef } from 'react'
 import { ProgressBar } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
@@ -6,17 +6,55 @@ import bsCustomFileInput from 'bs-custom-file-input';
 import FilterableTable from 'react-filterable-table';
 import Pager from 'react-pager';
 import { Tooltip } from "reactstrap";
+import MaterialTable from "material-table";
+import { 
+  AddBox,
+  ArrowDownward,
+  Check,
+  Clear,
+  DeleteOutline,
+  ChevronRight,
+  Edit,
+  SaveAlt,
+  FilterList,
+  FirstPage,
+  LastPage,
+  ChevronLeft,
+  Search,
+  Remove,
+  ViewColumn
+} from "@material-ui/icons";
 
 class ManageSchool extends Component {
   constructor(props){
     super(props);
     this.state = {
       records: [],
-      tooltipOpen: false
+      tooltipOpen: false,
+      tableIcons: {}
     }
   }
 
   componentDidMount(){
+    const tableIcons = {
+      Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+      Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+      Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+      Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+      DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+      Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+      Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+      Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+      FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+      LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+      NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+      PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+      ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+      Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+      SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+      ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+      ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+    };
     let re = [
       {
         _id: 1,
@@ -33,7 +71,7 @@ class ManageSchool extends Component {
         state:'Punjab'
       }
     ];
-    this.setState({records: re})
+    this.setState({records: re, tableIcons})
   }
 
   renderAction = (props, index) => {
@@ -73,42 +111,44 @@ class ManageSchool extends Component {
   render() {
     const fields = [
       {
-        name: "Deactive",
-        displayName: "",
+        // name: "",
+        // field: "Deactive",
+        name: "action",
+        title: "",
         inputFilterable: true,
         exactFilterable: true,
         render: this.DeactiveAction,
       },
       {
-        name: "schoolName",
-        displayName: "School ",
+        title: "School ",
+        field: "schoolName",
         inputFilterable: true,
         sortable: true,
       },
       {
-        name: "principal",
-        displayName: "Principal ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
-      },
-      {
-        name: "city",
-        displayName: "City ",
+        field: "principal",
+        title: "Principal ",
         inputFilterable: true,
         exactFilterable: true,
         sortable: true,
       },
       {
-        name: "state",
-        displayName: "State ",
+        field: "city",
+        title: "City ",
+        inputFilterable: true,
+        exactFilterable: true,
+        sortable: true,
+      },
+      {
+        field: "state",
+        title: "State ",
         inputFilterable: true,
         exactFilterable: true,
         sortable: true,
       },
       {
         name: "action",
-        displayName: "Actions ",
+        title: "Actions ",
         inputFilterable: true,
         exactFilterable: true,
         render: this.renderAction,
@@ -123,22 +163,14 @@ class ManageSchool extends Component {
           
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">School List</h4>
                 
-                <FilterableTable
-                  namespace="school_records"
-                  initialSort="schoolName"
-                  data={this.state.records}
-                  fields={fields}
-                  topPagerVisible={false}
-                  pageSize={10}
-                  pageSizes={[10, 20, 50, 100]}
-                  autofocusFilter={true}
-                  noRecordsMessage="There are no School Records"
-                  noFilteredRecordsMessage="No Recording match your filters!"
-                />
-              </div>
+              <MaterialTable
+              title="School List"
+              icons={this.state.tableIcons}
+              data={this.state.records}
+              columns={fields}
+              options={{ search: true, paging: true, filtering: true, exportButton: true }}
+              />
             </div>
           </div>
         </div>
