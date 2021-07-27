@@ -79,20 +79,67 @@ class Sidebar extends Component {
               </Link>
             </li>
 
-            {/* <li className="nav-item sidebar-user-actions">
-              <div className="sidebar-user-menu">
-                <a href="!#" onClick={event => event.preventDefault()} className="nav-link"><i className="mdi mdi-settings menu-icon"></i>
-                  <span className="menu-title">Settings</span>
-                </a>
-              </div>
-            </li> */}
-
-            {/* <li className="nav-item sidebar-user-actions">
-              <div className="sidebar-user-menu">
-                <a href="!#" onClick={event => event.preventDefault()} className="nav-link"><i className="mdi mdi-logout menu-icon"></i>
-                  <span className="menu-title">Log Out</span></a>
-              </div>
-            </li> */}
+            {/* ===================================== for school admin route =============================== */}
+            <div className="dropdown-divider"></div>
+            <li className="nav-item nav-category">Main ( admin )</li>
+            <li className={ this.isPathActive('/admin/dashboard') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/dashboard">
+                <span className="icon-bg"><i className="mdi mdi-cube menu-icon"></i></span>
+                <span className="menu-title">Dashboard</span>
+              </Link>
+            </li>
+            
+            <li className="nav-item nav-category">School</li>
+            <li className={ this.isPathActive('/admin/manageclasses') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/manageclasses">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Class Information</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/managesubjects') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/managesubjects">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Subjects</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/managestudent') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/managestudent">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Student</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/managefee') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/managefee">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Fee</span>
+              </Link>
+            </li>
+            <li className="nav-item nav-category">Staff</li>
+            <li className={ this.isPathActive('/admin/managestaffdata') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/managestaffdata">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Staff</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/manageclassforemployees') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/manageclassforemployees">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Class Emp.</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/managebusdata') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/managebusdata">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Manage Bus</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/accesslevels') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/accesslevels">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Access Levels</span>
+              </Link>
+            </li>
+            {/* ============================================================================================= */}
           </ul>
         </nav>
       );
