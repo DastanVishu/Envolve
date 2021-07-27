@@ -29,7 +29,7 @@ class AddSchool extends Component {
         return (
           <div>
             <div className="page-header">
-              <h3 className="page-title"> School </h3>
+              <h3 className="page-title"> Setup New School  </h3>
             </div>
             <div className="row">
 

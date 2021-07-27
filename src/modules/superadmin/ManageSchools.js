@@ -1,11 +1,4 @@
 import React, { Component, forwardRef } from 'react'
-import { ProgressBar } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
-import bsCustomFileInput from 'bs-custom-file-input';
-import FilterableTable from 'react-filterable-table';
-import Pager from 'react-pager';
-import { Tooltip } from "reactstrap";
 import MaterialTable from "material-table";
 
 class ManageSchool extends Component {
@@ -121,7 +114,7 @@ class ManageSchool extends Component {
     return (
       <div>
         <div className="page-header">
-          <h3 className="page-title"> #Schools </h3>
+          <h3 className="page-title"> Manage Schools </h3>
         </div>
         <div className="row">
           
@@ -129,7 +122,7 @@ class ManageSchool extends Component {
             <div className="card">
                 
               <MaterialTable
-              title="School List"
+              title=""
               data={this.state.records}
               columns={fields}
               options={{ search: true, paging: true, filtering: true, exportButton: true }}
