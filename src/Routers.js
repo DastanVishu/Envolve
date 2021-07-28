@@ -36,14 +36,14 @@ class Routers extends Component {
 
           {/* school admin */}
           <Route path="/admin/dashboard" component={AdminDashboard} />
-          <Route path="/admin/manageclasses" component={ClassInformation} />
-          <Route path="/admin/managestudent" component={ManageStudentData} />
-          <Route path="/admin/managefee" component={ManageFeeData} />
-          <Route path="/admin/manageclassforemployees" component={ManageClassForEmployees} />
-          <Route path="/admin/managestaffdata" component={ManageStaffData} />
+          <Route path="/admin/classes" component={ClassInformation} />
+          <Route path="/admin/students" component={ManageStudentData} />
+          <Route path="/admin/feedata" component={ManageFeeData} />
+          <Route path="/admin/class4employees" component={ManageClassForEmployees} />
+          <Route path="/admin/staffmembers" component={ManageStaffData} />
           <Route path="/admin/accesslevels" component={AccessLevels} />
-          <Route path="/admin/managesubjects" component={ManageSubjects} />
-          <Route path="/admin/managebusdata" component={ManageBusData} />
+          <Route path="/admin/subjects" component={ManageSubjects} />
+          <Route path="/admin/busdata" component={ManageBusData} />
 
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />

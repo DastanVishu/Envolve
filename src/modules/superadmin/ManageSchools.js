@@ -7,7 +7,6 @@ class ManageSchool extends Component {
     this.state = {
       records: [],
       tooltipOpen: false,
-      tableIcons: {}
     }
   }
 
