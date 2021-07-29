@@ -57,7 +57,7 @@ class Sidebar extends Component {
         <nav className="sidebar sidebar-offcanvas" id="sidebar">
           <ul className="nav">
             
-            <li className="nav-item nav-category">Main</li>
+            <li className="nav-item nav-category">Super Admin</li>
             <li className={ this.isPathActive('/dashboard') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/dashboard">
                 <span className="icon-bg"><i className="mdi mdi-cube menu-icon"></i></span>
@@ -65,7 +65,6 @@ class Sidebar extends Component {
               </Link>
             </li>
             
-            <li className="nav-item nav-category">School</li>
             <li className={ this.isPathActive('/setupschool') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/setupschool">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
@@ -81,7 +80,7 @@ class Sidebar extends Component {
 
             {/* ===================================== for school admin route =============================== */}
             <div className="dropdown-divider"></div>
-            <li className="nav-item nav-category">Main ( admin )</li>
+            <li className="nav-item nav-category">School Admin</li>
             <li className={ this.isPathActive('/admin/dashboard') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/dashboard">
                 <span className="icon-bg"><i className="mdi mdi-cube menu-icon"></i></span>
@@ -89,7 +88,6 @@ class Sidebar extends Component {
               </Link>
             </li>
             
-            <li className="nav-item nav-category">School</li>
             <li className={ this.isPathActive('/admin/subjects') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/subjects">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>

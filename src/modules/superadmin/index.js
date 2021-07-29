@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import { Dropdown, Tabs, Tab } from 'react-bootstrap';
-import {Line, Bar} from 'react-chartjs-2';
-import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
 
 export class Dashboard extends Component {

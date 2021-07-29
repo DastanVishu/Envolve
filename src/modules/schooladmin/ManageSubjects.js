@@ -74,7 +74,7 @@ class ManageSubjects extends Component {
         return(
             <div>
                 <div className="page-header">
-                <h3 className="page-title"> Classes </h3>
+                <h3 className="page-title"> Subjects </h3>
                 </div>
                 <div className="row">
                     <div className="col-lg-12 grid-margin stretch-card">    
