@@ -14,6 +14,7 @@ import ManageBusData from './modules/schooladmin/ManageBusData';
 import ManageFeeData from './modules/schooladmin/ManageFeeData';
 import ManageStaffData from './modules/schooladmin/ManageStaffData';
 import ManageStudentData from './modules/schooladmin/ManageStudentData';
+import AddStudent from './modules/schooladmin/AddStudent';
 import ManageSubjects from './modules/schooladmin/ManageSubjects';
 import AccessLevels from './modules/schooladmin/AccessLevels';
 import ManageClassForEmployees from './modules/schooladmin/ManageClassForEmployees';
@@ -38,6 +39,7 @@ class Routers extends Component {
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/admin/classes" component={ClassInformation} />
           <Route path="/admin/students" component={ManageStudentData} />
+					<Route path="/admin/addstudent" component={AddStudent} />
           <Route path="/admin/feedata" component={ManageFeeData} />
           <Route path="/admin/class4employees" component={ManageClassForEmployees} />
           <Route path="/admin/staffmembers" component={ManageStaffData} />
