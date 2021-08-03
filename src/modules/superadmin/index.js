@@ -109,7 +109,7 @@ export class Dashboard extends Component {
                       <div className="card">
                         <Link className="nav-link" to="/dashboard">
                           <div className="card-body text-center">
-                          <h5 className="mb-2 text-dark font-weight-normal">School</h5>
+                          <h5 className="mb-2 text-dark font-weight-normal">Schools</h5>
                           <h2 className="mb-4 text-dark font-weight-bold">9</h2>
                         </div>
                         </Link>
@@ -119,7 +119,7 @@ export class Dashboard extends Component {
                       <div className="card">
                         <Link className="nav-link" to="/dashboard">
                           <div className="card-body text-center">
-                            <h5 className="mb-2 text-dark font-weight-normal">Teacher</h5>
+                            <h5 className="mb-2 text-dark font-weight-normal">Teachers</h5>
                             <h2 className="mb-4 text-dark font-weight-bold">100</h2>
                           </div>
                         </Link>
@@ -129,7 +129,7 @@ export class Dashboard extends Component {
                       <div className="card">
                         <Link className="nav-link" to="/dashboard">
                           <div className="card-body text-center">
-                            <h5 className="mb-2 text-dark font-weight-normal">Student</h5>
+                            <h5 className="mb-2 text-dark font-weight-normal">Students</h5>
                             <h2 className="mb-4 text-dark font-weight-bold">15k</h2>
                           </div>
                         </Link>

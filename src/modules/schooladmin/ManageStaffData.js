@@ -190,82 +190,82 @@ class ManageStaffData extends Component {
                                     </div>
                         
                                     <div className="row">
-																				<div className="col-md-6">
-																					<Form.Group className="row">
-																						<label className="col-sm-3 col-form-label">Address</label>
-																						<div className="col-sm-9">
-																						<Form.Control type="text"/>
-																						</div>
-																					</Form.Group>
-																				</div>
                                         <div className="col-md-6">
-																					<Form.Group className="row">
-																						<label className="col-sm-3 col-form-label"> Photo <span style={this.state.startstyle}>*</span></label>
-																						<div className="custom-file col-sm-9">
-																							<Form.Control type="file" className="form-control visibility-hidden" id="customFileLang" lang="es"/>
-																							<label className="custom-file-label" htmlFor="customFileLang">Browse</label>
-																						</div>
-																					</Form.Group>
-																				</div>
+                                            <Form.Group className="row">
+                                                <label className="col-sm-3 col-form-label">Address</label>
+                                                <div className="col-sm-9">
+                                                <Form.Control type="text"/>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                                <label className="col-sm-3 col-form-label"> Photo <span style={this.state.startstyle}>*</span></label>
+                                                <div className="custom-file col-sm-9">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="customFileLang" lang="es"/>
+                                                    <label className="custom-file-label" htmlFor="customFileLang">Browse</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
                                     </div>
-																		{/* ================== associate teacher class======================= */}
-																		<h4 className="card-title">Associate Teacher With Class & Subjects</h4>
-																		<div className="row">
+                                    {/* ================== associate teacher class======================= */}
+                                    <h4 className="card-title">Associate Teacher With Class & Subjects</h4>
+                                    <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Class <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
-																							<select className="form-control">
-																									<option>1</option>
-																									<option>2</option>
-																									<option>3</option>
-																									<option>4</option>
-																							</select>
+                                                <select className="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                </select>
                                             </div>
                                             </Form.Group>
                                         </div>
-																		</div>
-																		<div className="row">
-																				<div className="col-12">
-																						<Form.Group className="row">
-																						<div className="form-check mr-3">
-																							<label className="form-check-label">
-																								<input type="checkbox" className="form-check-input"/>
-																								<i className="input-helper"></i>
-																								English
-																							</label>
-																						</div>
-																						<div className="form-check mr-3">
-																							<label className="form-check-label">
-																								<input type="checkbox" className="form-check-input"/>
-																								<i className="input-helper"></i>
-																								Yoga
-																							</label>
-																						</div>
-																						<div className="form-check mr-3">
-																							<label className="form-check-label">
-																								<input type="checkbox" className="form-check-input"/>
-																								<i className="input-helper"></i>
-																								Math
-																							</label>
-																						</div>
-																						<div className="form-check mr-3">
-																							<label className="form-check-label">
-																								<input type="checkbox" className="form-check-input"/>
-																								<i className="input-helper"></i>
-																								Music
-																							</label>
-																						</div>
-																						<div className="form-check mr-3">
-																							<label className="form-check-label">
-																								<input type="checkbox" className="form-check-input"/>
-																								<i className="input-helper"></i>
-																								Drawing
-																							</label>
-																						</div>
-																						</Form.Group>
-																				</div>
-																		</div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <Form.Group className="row">
+                                                <div className="form-check mr-3">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input"/>
+                                                        <i className="input-helper"></i>
+                                                        English
+                                                    </label>
+                                                </div>
+                                                <div className="form-check mr-3">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input"/>
+                                                        <i className="input-helper"></i>
+                                                        Yoga
+                                                    </label>
+                                                </div>
+                                                <div className="form-check mr-3">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input"/>
+                                                        <i className="input-helper"></i>
+                                                        Math
+                                                    </label>
+                                                </div>
+                                                <div className="form-check mr-3">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input"/>
+                                                        <i className="input-helper"></i>
+                                                        Music
+                                                    </label>
+                                                </div>
+                                                <div className="form-check mr-3">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input"/>
+                                                        <i className="input-helper"></i>
+                                                        Drawing
+                                                    </label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                    </div>
                                     <div className="row">
                                         <div className="col-sm-12">
                                             <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5, float:'right'}}>Submit</button>
@@ -283,7 +283,7 @@ class ManageStaffData extends Component {
                             title=""
                             data={this.state.records}
                             columns={this.field()}
-                            options={{ search: true, paging: true, filtering: true, exportButton: true }}
+                            options={{ search: true, paging: true, exportButton: true }}
                             />
                         </div>
                     </div>

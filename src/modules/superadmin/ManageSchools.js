@@ -16,6 +16,8 @@ class ManageSchool extends Component {
         _id: 1,
         schoolName:'S.D.M school',
         principal:'Ashok',
+        teacherCount:'10',
+        studentCount:"4000",
         city:'Amritsar',
         state:'Punjab'
       },
@@ -23,6 +25,8 @@ class ManageSchool extends Component {
         _id: 2,
         schoolName:'Shivalic public school',
         principal:'Jitu',
+        teacherCount:'20',
+        studentCount:"3000",
         city:'Amritsar',
         state:'Punjab'
       }
@@ -33,6 +37,9 @@ class ManageSchool extends Component {
   renderAction = (props, index) => {
     
     return(<span>
+      <button type="button" className="btn btn-outline-success" style={{padding:'8px'}}>
+        <i className="mdi mdi-upload" style={{fontSize:'17px'}}></i>
+      </button>
       <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
         <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
       </button>
@@ -71,42 +78,37 @@ class ManageSchool extends Component {
         // field: "Deactive",
         name: "action",
         title: "",
-        inputFilterable: true,
-        exactFilterable: true,
+        width: "0%",
+        align:"center",
         render: this.DeactiveAction,
       },
       {
         title: "School ",
         field: "schoolName",
-        inputFilterable: true,
-        sortable: true,
       },
       {
         field: "principal",
         title: "Principal ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
+      },
+      {
+        field: "teacherCount",
+        title: "Teacher No.",
+      },
+      {
+        field: "studentCount",
+        title: "Student No.",
       },
       {
         field: "city",
         title: "City ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
       },
       {
         field: "state",
         title: "State ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
       },
       {
         name: "action",
         title: "Actions ",
-        inputFilterable: true,
-        exactFilterable: true,
         render: this.renderAction,
       },
     ];
@@ -116,15 +118,13 @@ class ManageSchool extends Component {
           <h3 className="page-title"> Manage Schools </h3>
         </div>
         <div className="row">
-          
           <div className="col-lg-12 grid-margin stretch-card">
-            <div className="card">
-                
+            <div className="card">      
               <MaterialTable
               title=""
               data={this.state.records}
               columns={fields}
-              options={{ search: true, paging: true, filtering: true, exportButton: true }}
+              options={{ search: true, paging: true, exportButton: true }}
               />
             </div>
           </div>

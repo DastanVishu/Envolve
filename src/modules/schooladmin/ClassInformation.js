@@ -95,7 +95,7 @@ class ClassInformation extends Component {
                             <div className="card-body">
                                 <form className="forms-sample">
                                     <div className="row">
-                                        <div className="col-md-5">
+                                        <div className="col-md-6">
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Class Name<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
@@ -103,7 +103,7 @@ class ClassInformation extends Component {
                                             </div>
                                             </Form.Group>
                                         </div>
-                                        <div className="col-md-5">
+                                        <div className="col-md-4">
                                             <Form.Group className="row">
                                                 <label className="col-sm-3 col-form-label">Section<span style={this.state.startstyle}>*</span></label>
                                                 <div className="col-sm-9">
@@ -133,7 +133,7 @@ class ClassInformation extends Component {
                             title=""
                             data={this.state.records}
                             columns={this.field()}
-                            options={{ search: true, paging: true, filtering: true, exportButton: true }}
+                            options={{ search: true, paging: true, exportButton: true }}
                             />
                         </div>
                     </div>

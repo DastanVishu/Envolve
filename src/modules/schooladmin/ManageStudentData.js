@@ -70,35 +70,25 @@ class ManageStudentData extends Component {
         // field: "Deactive",
         name: "action",
         title: "",
-        inputFilterable: true,
-        exactFilterable: true,
+        width: "0%",
+        align:"center",
         render: this.DeactiveAction,
       },
       {
         title: "Student Name ",
         field: "studentName",
-        inputFilterable: true,
-        sortable: true,
       },
       {
         field: "class",
         title: "Class ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
       },
       {
         field: "dob",
         title: "DOB ",
-        inputFilterable: true,
-        exactFilterable: true,
-        sortable: true,
       },
       {
         name: "action",
         title: "Actions ",
-        inputFilterable: true,
-        exactFilterable: true,
         render: this.renderAction,
       },
     ];
@@ -121,7 +111,7 @@ class ManageStudentData extends Component {
               title=""
               data={this.state.records}
               columns={fields}
-              options={{ search: true, paging: true, filtering: true, exportButton: true }}
+              options={{ search: true, paging: true, exportButton: true }}
               />
             </div>
           </div>

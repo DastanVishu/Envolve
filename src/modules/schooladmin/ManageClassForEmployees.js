@@ -220,7 +220,7 @@ class ManageClassForEmployees extends Component {
                             title=""
                             data={this.state.records}
                             columns={this.field()}
-                            options={{ search: true, paging: true, filtering: true, exportButton: true }}
+                            options={{ search: true, paging: true, exportButton: true }}
                             />
                         </div>
                     </div>
