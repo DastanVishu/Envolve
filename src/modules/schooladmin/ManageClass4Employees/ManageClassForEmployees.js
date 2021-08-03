@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MaterialTable from "material-table";
 import { Link } from 'react-router-dom';
+import ReactTooltip from "react-tooltip";
 
 class ManageClassForEmployees extends Component {
     constructor(props){
@@ -53,32 +54,41 @@ class ManageClassForEmployees extends Component {
 
     renderAction = (props) => {
     
-        return(
-            <span>
-                <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
-                    <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
-                </button>
-
-                <button type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
-                    <i className="mdi mdi-delete"style={{fontSize:'17px'}}></i>
-                </button>
-            </span>
-        )
-    }
-
-    DeactiveAction = (props, index) => {
-    
-        return(
-          <span>  
-            <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
-              <label className="form-check-label">
-                <input type="checkbox" className="form-check-input" defaultChecked />
-                <i className="input-helper"></i>
-              </label>
-            </span>
+      return(
+          <span>
+            <ReactTooltip id='Edit' type='warning' effect='solid'>
+              <span>Edit</span>
+            </ReactTooltip>
+              <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+                  <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
+              </button>
+              
+            <ReactTooltip id='Delete' type='error' effect='solid'>
+              <span>Delete</span>
+            </ReactTooltip>
+            
+              <button data-tip data-for="Delete" type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
+                  <i className="mdi mdi-delete"style={{fontSize:'17px'}}></i>
+              </button>
           </span>
-        )
-    }
+      )
+  }
+  DeactiveAction = (props, index) => {
+  
+      return(
+        <span>
+          <ReactTooltip id='activate' type='error' effect='solid'>
+              <span>Activate/Deactive</span>
+            </ReactTooltip>  
+          <span  data-tip data-for="activate" className="form-check form-check-danger" style={{display:'inline-flex'}}>
+            <label className="form-check-label">
+              <input type="checkbox" className="form-check-input" defaultChecked />
+              <i className="input-helper"></i>
+            </label>
+          </span>
+        </span>
+      )
+  }
 
     field = () => {
         const fields = [

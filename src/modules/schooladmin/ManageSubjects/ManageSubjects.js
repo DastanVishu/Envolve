@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ReactTooltip from "react-tooltip";
 
 class ManageSubjects extends Component {
     constructor(props){
@@ -44,11 +45,18 @@ class ManageSubjects extends Component {
     
         return(
             <span>
-                <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+              <ReactTooltip id='Edit' type='warning' effect='solid'>
+                <span>Edit</span>
+              </ReactTooltip>
+                <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                     <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
                 </button>
-
-                <button type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
+                
+              <ReactTooltip id='Delete' type='error' effect='solid'>
+                <span>Delete</span>
+              </ReactTooltip>
+              
+                <button data-tip data-for="Delete" type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
                     <i className="mdi mdi-delete"style={{fontSize:'17px'}}></i>
                 </button>
             </span>

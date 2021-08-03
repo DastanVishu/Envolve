@@ -56,6 +56,7 @@
     "react-simplemde-editor": "^4.1.0",
     "react-table": "^6.10.3",
     "react-tag-autocomplete": "^5.11.1",
+    "react-tooltip": "^4.2.21",
     "react-treebeard": "^3.2.4",
     "react-trello": "^2.2.3",
     "reactstrap": "^8.9.0",

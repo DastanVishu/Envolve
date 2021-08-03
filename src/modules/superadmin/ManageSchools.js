@@ -1,6 +1,7 @@
 import React, { Component, forwardRef } from 'react'
 import MaterialTable from "material-table";
 import { Link } from 'react-router-dom';
+import ReactTooltip from "react-tooltip";
 
 class ManageSchool extends Component {
   constructor(props){
@@ -38,31 +39,37 @@ class ManageSchool extends Component {
   renderAction = (props, index) => {
     
     return(<span>
-      <button type="button" className="btn btn-outline-success" style={{padding:'8px'}}>
-        <i className="mdi mdi-upload" style={{fontSize:'17px'}}></i>
-      </button>
-      <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
-        <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
-      </button>
+
+      <ReactTooltip id='Edit' type='warning' effect='solid'>
+        <span>Edit</span>
+      </ReactTooltip>
+        <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+            <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
+        </button>
       
-      <button type="button" className="btn btn-outline-primary" style={{padding:'8px'}}>
+      <ReactTooltip id='User' effect='solid'>
+        <span>User log</span>
+      </ReactTooltip>
+      <button data-tip data-for="User" type="button" className="btn btn-outline-primary" style={{padding:'8px'}}>
         <i className="mdi mdi-account-key"style={{fontSize:'17px'}}></i>
       </button>
 
-      <span>
-      <button type="button" className="btn btn-outline-light" style={{padding:'8px'}}>
+      <ReactTooltip id='Key' effect='solid'>
+        <span>Key will show here</span>
+      </ReactTooltip>
+      <button data-tip data-for="Key" type="button" className="btn btn-outline-light" style={{padding:'8px'}}>
         <i className="mdi mdi-key-variant"style={{fontSize:'17px'}}></i>
       </button>
-      
-      </span>
-
     </span>)
   }
   DeactiveAction = (props, index) => {
-    
+
     return(
-      <span>  
-        <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
+      <span>
+        <ReactTooltip id='activate' type='error' effect='solid'>
+            <span>Activate/Deactive</span>
+          </ReactTooltip>  
+        <span  data-tip data-for="activate" className="form-check form-check-danger" style={{display:'inline-flex'}}>
           <label className="form-check-label">
             <input type="checkbox" className="form-check-input" defaultChecked />
             <i className="input-helper"></i>
@@ -70,7 +77,7 @@ class ManageSchool extends Component {
         </span>
       </span>
     )
-  }
+}
 
   render() {
     const fields = [

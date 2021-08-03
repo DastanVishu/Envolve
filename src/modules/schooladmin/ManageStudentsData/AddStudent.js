@@ -32,12 +32,31 @@ class AddStudent extends Component {
               <h3 className="page-title"> Add Student  </h3>
             </div>
             <div className="row">
-
               <div className="col-12 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
                     <h4 className="card-title">Student Info</h4>
                     <form className="forms-sample">
+
+                        <div className="row">
+                        <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Admission No.<span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-9">
+                                    <Form.Control  type="text" />
+                                </div>
+                                </Form.Group>
+                            </div>
+                          <div className="col-md-6">
+														<Form.Group className="row">
+																<label className="col-sm-3 col-form-label">Admission Date<span style={this.state.startstyle}>*</span></label>
+																<div className="col-sm-9">
+                                    <Form.Control  type="date" />
+                                </div>
+														</Form.Group>
+                          </div>
+                        </div>
+
 												<div className="row">
 														<div className="col-md-6">
                                 <Form.Group className="row">
@@ -77,8 +96,6 @@ class AddStudent extends Component {
 															</div>
 														</Form.Group>
 													</div>
-													
-													
 												</div>
 												<div className="row">
 													<div className="col-md-6">
@@ -105,14 +122,14 @@ class AddStudent extends Component {
                           </div>
                         </div>
 												<div className="row">
-                          <div className="col-md-12">
+													<div className="col-md-6">
 														<Form.Group className="row">
-																<label className="col-sm-2 col-form-label">Student Admission No. <span style={this.state.startstyle}>*</span></label>
-                                <div className="col-sm-10">
-                                    <Form.Control  type="text" />
-                                </div>
+															<label className="col-sm-3 col-form-label">Session Start from</label>
+															<div className="col-sm-9">
+                                <Form.Control type="date" />
+                              </div>
 														</Form.Group>
-                          </div>
+													</div>
                         </div>
 												
 												
@@ -243,7 +260,58 @@ class AddStudent extends Component {
                             <label htmlFor="exampleTextarea1">Address <span style={this.state.startstyle}>*</span></label>
                             <textarea className="form-control" id="exampleTextarea1" rows="4"></textarea>
                         </Form.Group>
-												{/* =================================== Bus============================== */}
+												{/* =================================== other Details ============================== */}
+												<h4 className="card-title">Other Details</h4>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Concession id<span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-9">
+                                  <select className="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                  </select>
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">Category <span style={this.state.startstyle}>*</span></label>
+                                  <div className="col-sm-9">
+                                    <select className="form-control">
+                                      <option>type 1</option>
+                                      <option>type 2</option>
+                                    </select>
+                                  </div>
+                              </Form.Group>
+                            </div>
+                        </div>
+                        
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Status <span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-9">
+                                  <select className="form-control">
+                                    <option>on</option>
+                                    <option>off</option>
+                                  </select>
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">Passed Out <span style={this.state.startstyle}>*</span></label>
+                                  <div className="col-sm-9">
+                                    <Form.Control type="date" />
+                                  </div>
+                              </Form.Group>
+                            </div>
+                        </div>
+                        {/* ===================================================================== */}
+                        {/* =================================== Bus============================== */}
 												<h4 className="card-title">Bus/Private</h4>
 												<div className="row">
 												<div className="col-md-6">
@@ -269,18 +337,33 @@ class AddStudent extends Component {
 													</Form.Group>
 												</div>
 												</div>
-												<div className="row">
-													<div className="col-md-6">
-														<Form.Group className="row">
-																<label className="col-sm-3 col-form-label">Bus <span style={this.state.startstyle}>*</span></label>
-																<div className="col-sm-9">
-																	<select className="form-control">
-																		<option>b1</option>
-																		<option>b2</option>
-																	</select>
-																</div>
-														</Form.Group>
-                          </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Route<span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-9">
+                                  <select className="form-control">
+                                    <option>Please select Route</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                  </select>
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">Destination<span style={this.state.startstyle}>*</span></label>
+                                  <div className="col-sm-9">
+                                    <select className="form-control">
+                                      <option>Please select Destination</option>
+                                      <option>type 1</option>
+                                      <option>type 2</option>
+                                    </select>
+                                  </div>
+                              </Form.Group>
+                            </div>
                         </div>
                         
 
