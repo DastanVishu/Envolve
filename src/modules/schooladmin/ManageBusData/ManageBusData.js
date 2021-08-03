@@ -177,7 +177,16 @@ class ManageBusData extends Component {
                     </div>
 
                     <div className="col-lg-12 grid-margin stretch-card">
-                        <div className="card">                   
+                        <div className="card">
+                        <nav aria-label="breadcrumb">
+                              <div className="row">
+                                <div class="col">
+                                  <button type="button" class="btn mr-0 pr-0">
+                                    <i class="mdi mdi-import" style={{fontSize: "24px"}}></i>
+                                  </button>Import Bulk Data (<code><a href="" class="sm-text">Download &amp; View File Format</a></code>)
+                                </div>
+                              </div>            
+                          </nav>                    
                             <MaterialTable
                             title=""
                             data={this.state.records}

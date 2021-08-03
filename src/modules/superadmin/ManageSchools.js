@@ -2,6 +2,7 @@ import React, { Component, forwardRef } from 'react'
 import MaterialTable from "material-table";
 import { Link } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
+import { Form } from 'react-bootstrap';
 
 class ManageSchool extends Component {
   constructor(props){
@@ -126,17 +127,77 @@ class ManageSchool extends Component {
           <h3 className="page-title"> Manage Schools </h3>
         </div>
         <div className="row">
+
+          {/* =========================================== */}
+          <div className="col-lg-12 grid-margin stretch-card">    
+              <div className="card">
+                  <div className="card-body">
+                      <form className="forms-sample">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Student Name</label>
+                                <div className="col-sm-9">
+                                    <Form.Control  type="text" />
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                    <label className="col-sm-3 col-form-label">Admission #</label>
+                                    <div className="col-sm-9">
+                                        <Form.Control type="text" />
+                                    </div>
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="row">
+                                <label className="col-sm-3 col-form-label">Class<span style={this.state.startstyle}>*</span></label>
+                                <div className="col-sm-9">
+                                  <select className="form-control">
+                                    <option>Class-1-A</option>
+                                    <option>Class-1-B</option>
+                                    <option>Class-2-A</option>
+                                    <option>Class-2-B</option>
+                                  </select>
+                                </div>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                              <Form.Group className="row">
+                                  <label className="col-sm-3 col-form-label">State <span style={this.state.startstyle}>*</span></label>
+                                  <div className="col-sm-9">
+                                    <select className="form-control">
+                                      <option>Reena</option>
+                                      <option>Jay</option>
+                                    </select>
+                                  </div>
+                              </Form.Group>
+                            </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-sm-12">
+                            <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5, float:'right'}}>Search</button>
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          {/* =========================================== */}
+
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
               <nav aria-label="breadcrumb">
                   <div className="row">
-                      <div className="col-8"></div>
-                      <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                          <Link>Download Excel Table Formate</Link>
-                      </div>
-                      <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                          <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Upload</button>  
-                      </div>
+                    <div className="col">
+                      <button type="button" className="btn mr-0 pr-0">
+                        <i className="mdi mdi-import" style={{fontSize: "24px"}}></i>
+                      </button>Import Bulk Data (<code><a href="" className="sm-text">Download &amp; View File Format</a></code>)
+                    </div>
                   </div>            
               </nav>       
               <MaterialTable

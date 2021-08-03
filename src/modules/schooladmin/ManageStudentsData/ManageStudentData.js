@@ -17,12 +17,16 @@ class ManageStudentData extends Component {
       {
         _id: 1,
         studentName:'Ankur Rana',
+        admissionId:'123AB',
+        admissionDate:'02-04-2012',
         class:'2-A',
         dob:'02-04-2012',
       },
       {
         _id: 2,
         studentName:'Manjeet Kaur',
+        admissionId:'333AB',
+        admissionDate:'02-05-2010',
         class:'2-B',
 				dob:'02-04-2012',
       }
@@ -84,6 +88,14 @@ DeactiveAction = (props, index) => {
         field: "studentName",
       },
       {
+        title: "Admission ID",
+        field: "admissionId",
+      },
+      {
+        title: "Admission Date",
+        field: "admissionDate",
+      },
+      {
         field: "class",
         title: "Class ",
       },
@@ -111,17 +123,15 @@ DeactiveAction = (props, index) => {
           
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
-            <nav aria-label="breadcrumb">
-                <div className="row">
-                    <div className="col-8"></div>
-                    <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                        <Link>Download Excel Table Formate</Link>
+              <nav aria-label="breadcrumb">
+                  <div className="row">
+                    <div class="col">
+                      <button type="button" class="btn mr-0 pr-0">
+                        <i class="mdi mdi-import" style={{fontSize: "24px"}}></i>
+                      </button>Import Bulk Data (<code><a href="" class="sm-text">Download &amp; View File Format</a></code>)
                     </div>
-                    <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Upload</button>  
-                    </div>
-                </div>            
-            </nav> 
+                  </div>            
+              </nav> 
               <MaterialTable
               title=""
               data={this.state.records}

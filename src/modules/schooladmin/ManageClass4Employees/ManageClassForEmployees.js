@@ -138,13 +138,11 @@ class ManageClassForEmployees extends Component {
                         <div className="card"> 
                           <nav aria-label="breadcrumb">
                               <div className="row">
-                                  <div className="col-8"></div>
-                                  <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                                      <Link>Download Excel Table Formate</Link>
-                                  </div>
-                                  <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
-                                      <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Upload</button>  
-                                  </div>
+                                <div class="col">
+                                  <button type="button" class="btn mr-0 pr-0">
+                                    <i class="mdi mdi-import" style={{fontSize: "24px"}}></i>
+                                  </button>Import Bulk Data (<code><a href="" class="sm-text">Download &amp; View File Format</a></code>)
+                                </div>
                               </div>            
                           </nav>                   
                             <MaterialTable
