@@ -84,8 +84,8 @@ class ManageSubjects extends Component {
                                     <div className="row">
                                         <div className="col-md-9">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Subject Title<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
+                                            <label className="col-sm-2 col-form-label">Subject<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-10">
                                                 <Form.Control  type="text" />
                                             </div>
                                             </Form.Group>
