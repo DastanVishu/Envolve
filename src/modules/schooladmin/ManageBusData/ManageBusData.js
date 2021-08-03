@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ManageBusData extends Component {
     constructor(props){
@@ -80,6 +81,7 @@ class ManageBusData extends Component {
             {
               title: "Driver",
               field: "driver",
+              render: this.DriverHyperlink
             },
             {
               title: "Route",
@@ -88,6 +90,7 @@ class ManageBusData extends Component {
             {
               title: "Student",
               field: "student",
+              render: this.studentHyperlink
             },
             {
               name: "action",
@@ -96,6 +99,22 @@ class ManageBusData extends Component {
             },
         ];
         return fields;
+    }
+
+    DriverHyperlink = (props) => {
+        return(
+          <>
+          <Link to="/admin/busdata">{props.driver}</Link>
+          </>
+        )
+    }
+
+    studentHyperlink = (props) => {
+        return(
+          <>
+          <Link to="/admin/busdata">{props.student}</Link>
+          </>
+        )
     }
 
     render() {

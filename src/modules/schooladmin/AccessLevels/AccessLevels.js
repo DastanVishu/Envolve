@@ -20,12 +20,14 @@ class AccessLevels extends Component {
           {
             _id: 1,
             user: "Anil Sharma",
+            username: 'Anil',
             category: 'Admin',
             access: "Fees, Bus"
           },
           {
             _id: 2,
             user: "Ram Singh",
+            username:'Ram',
             category: 'Accounts',
             access: "Fees"
           },
@@ -61,6 +63,14 @@ class AccessLevels extends Component {
         )
     }
 
+  userHyperlink = (props) => {
+    return(
+      <>
+      <Link to="/admin/accesslevels">{props.username}</Link>
+      </>
+    )
+  }
+
     field = () => {
         const fields = [
             {
@@ -69,6 +79,11 @@ class AccessLevels extends Component {
                 width: "0%",
                 align:"center",
                 render: this.DeactiveAction,
+            },
+            {
+              title: "Username",
+              field: "username",
+              render: this.userHyperlink
             },
             {
               title: "User",
