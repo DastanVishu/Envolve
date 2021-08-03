@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Form } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
 import bsCustomFileInput from 'bs-custom-file-input';
 import { HexColorPicker } from "react-colorful";
 // import "react-colorful/dist/index.css";

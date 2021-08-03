@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ClassInformation extends Component {
     constructor(props){
@@ -128,7 +129,18 @@ class ClassInformation extends Component {
                     </div>
 
                     <div className="col-lg-12 grid-margin stretch-card">
-                        <div className="card">                   
+                        <div className="card">
+                        <nav aria-label="breadcrumb">
+                            <div className="row">
+                                <div className="col-8"></div>
+                                <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
+                                    <Link>Download Excel Table Formate</Link>
+                                </div>
+                                <div className="col-2" style={{ padding: '0.5rem 0rem'}}>
+                                    <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Upload</button>  
+                                </div>
+                            </div>            
+                        </nav>                     
                             <MaterialTable
                             title=""
                             data={this.state.records}
