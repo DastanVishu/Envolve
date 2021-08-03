@@ -50,8 +50,29 @@ class ManageBusData extends Component {
         )
     }
 
+    DeactiveAction = (props, index) => {
+    
+        return(
+          <span>  
+            <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
+              <label className="form-check-label">
+                <input type="checkbox" className="form-check-input" defaultChecked />
+                <i className="input-helper"></i>
+              </label>
+            </span>
+          </span>
+        )
+    }
+
     field = () => {
         const fields = [
+            {
+                name: "action",
+                title: "",
+                width: "0%",
+                align:"center",
+                render: this.DeactiveAction,
+            },
             {
               title: "Bus No.",
               field: "busNo",

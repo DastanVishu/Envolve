@@ -8,16 +8,19 @@ import AddSchool from './modules/superadmin/AddSchool';
 import ManageSchools from './modules/superadmin/ManageSchools';
 
 // school admin
-import AdminDashboard from './modules/schooladmin/AdminDashboard';
-import ClassInformation from './modules/schooladmin/ClassInformation';
-import ManageBusData from './modules/schooladmin/ManageBusData';
-import ManageFeeData from './modules/schooladmin/ManageFeeData';
-import ManageStaffData from './modules/schooladmin/ManageStaffData';
-import ManageStudentData from './modules/schooladmin/ManageStudentData';
-import AddStudent from './modules/schooladmin/AddStudent';
-import ManageSubjects from './modules/schooladmin/ManageSubjects';
-import AccessLevels from './modules/schooladmin/AccessLevels';
-import ManageClassForEmployees from './modules/schooladmin/ManageClassForEmployees';
+import AdminDashboard from './modules/schooladmin/Dashboard/AdminDashboard';
+import ClassInformation from './modules/schooladmin/ClassInformation/ClassInformation';
+import ManageBusData from './modules/schooladmin/ManageBusData/ManageBusData';
+import ManageFeeData from './modules/schooladmin/ManageFeeData/ManageFeeData';
+import ManageStaffData from './modules/schooladmin/MnagageStaffData/ManageStaffData';
+import ManageStudentData from './modules/schooladmin/ManageStudentsData/ManageStudentData';
+import AddStudent from './modules/schooladmin/ManageStudentsData/AddStudent';
+import ManageSubjects from './modules/schooladmin/ManageSubjects/ManageSubjects';
+import AccessLevels from './modules/schooladmin/AccessLevels/AccessLevels';
+import ManageClassForEmployees from './modules/schooladmin/ManageClass4Employees/ManageClassForEmployees';
+import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
+import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
+import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
 
 // common
 import Login from './modules/Login';
@@ -46,6 +49,9 @@ class Routers extends Component {
           <Route path="/admin/accesslevels" component={AccessLevels} />
           <Route path="/admin/subjects" component={ManageSubjects} />
           <Route path="/admin/busdata" component={ManageBusData} />
+          <Route path="/admin/addstaff" component={AddStaff} />
+          <Route path="/admin/addclass4employees" component={AddClass4Employees} />
+          <Route path="/admin/addaccesslevels" component={AddAccessLevels} />
 
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />

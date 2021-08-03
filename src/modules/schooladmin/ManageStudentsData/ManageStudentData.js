@@ -35,18 +35,9 @@ class ManageStudentData extends Component {
       <button type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
         <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
       </button>
-      
-      <button type="button" className="btn btn-outline-primary" style={{padding:'8px'}}>
-        <i className="mdi mdi-account-key"style={{fontSize:'17px'}}></i>
+      <button type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
+        <i className="mdi mdi-delete" style={{fontSize:'17px'}}></i>
       </button>
-
-      <span>
-      <button type="button" className="btn btn-outline-light" style={{padding:'8px'}}>
-        <i className="mdi mdi-key-variant"style={{fontSize:'17px'}}></i>
-      </button>
-      
-      </span>
-
     </span>)
   }
   DeactiveAction = (props, index) => {

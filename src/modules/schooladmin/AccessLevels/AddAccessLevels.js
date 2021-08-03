@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 
-class AccessLevels extends Component {
+class AddAccessLevels extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -47,9 +46,29 @@ class AccessLevels extends Component {
             </span>
         )
     }
+    DeactiveAction = (props, index) => {
+    
+        return(
+          <span>  
+            <span className="form-check form-check-danger" style={{display:'inline-flex'}}>
+              <label className="form-check-label">
+                <input type="checkbox" className="form-check-input" defaultChecked />
+                <i className="input-helper"></i>
+              </label>
+            </span>
+          </span>
+        )
+    }
 
     field = () => {
         const fields = [
+            {
+                name: "action",
+                title: "",
+                width: "0%",
+                align:"center",
+                render: this.DeactiveAction,
+            },
             {
               title: "User",
               field: "user",
@@ -79,18 +98,38 @@ class AccessLevels extends Component {
         return(
             <div>
                 <div className="page-header">
-                <h3 className="page-title"> Create school sub-Admin </h3>
+                <h3 className="page-title"> Create School Sub-Admin </h3>
                 </div>
                 <div className="row">
                     <div className="col-lg-12 grid-margin stretch-card">    
                         <div className="card">
                             <div className="card-body">
                                 <form className="forms-sample">
+
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">UserName <span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
+                                            <Form.Control type="text"/>
+                                            </div>
+                                        </Form.Group>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Password <span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
+                                            <Form.Control type="password"/>
+                                            </div>
+                                        </Form.Group>
+                                    </div>
+                                </div>
+
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                                <label className="col-sm-4 col-form-label">Select Category<span style={this.state.startstyle}>*</span></label>
-                                                <div className="col-sm-8">
+                                                <label className="col-sm-3 col-form-label">Select Category<span style={this.state.startstyle}>*</span></label>
+                                                <div className="col-sm-9">
                                                     <select className="form-control">
                                                         <option>Teacher</option>
                                                         <option>Accountant</option>
@@ -186,21 +225,10 @@ class AccessLevels extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className="col-lg-12 grid-margin stretch-card">
-                        <div className="card">                   
-                            <MaterialTable
-                            title=""
-                            data={this.state.records}
-                            columns={this.field()}
-                            options={{ search: true, paging: true, exportButton: true }}
-                            />
-                        </div>
-                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default AccessLevels;
+export default AddAccessLevels;

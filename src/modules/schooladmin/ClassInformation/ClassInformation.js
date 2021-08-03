@@ -53,7 +53,7 @@ class ClassInformation extends Component {
         return(
             <span>
                 <button onClick={() => this.setState({selectedClass:props.classes, isModalVisible: !this.state.isModalVisible})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
-                    <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
+                    <i className="mdi mdi-link-variant" style={{fontSize:'17px'}}></i>
                 </button>    
             </span>
         )
