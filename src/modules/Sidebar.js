@@ -136,6 +136,12 @@ class Sidebar extends Component {
                 <span className="menu-title">Access Levels</span>
               </Link>
             </li>
+						<li className={ this.isPathActive('/admin/concession') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/concession">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Concession</span>
+              </Link>
+            </li>
             {/* ============================================================================================= */}
           </ul>
         </nav>

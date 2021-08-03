@@ -15,7 +15,7 @@ class ManageStaffData extends Component {
             fontSize: '14px'
           },
           isModalVisible: false,
-          selectedClass: '',
+          selectedTeacher: '',
         }
     }
 
@@ -26,28 +26,32 @@ class ManageStaffData extends Component {
             name: 'Ram Kumar',
             email: 'sdfaf@gmail.com',
             mobile: '8976540321',
-            class: '1-A'
+            classTeacher: 'Class 1-A',
+            subjectHead: 'English'
           },
           {
             _id: 2,
             name: 'Kunal Sharma',
             email: 'sdfa2f@gmail.com',
             mobile: '8976540321',
-            class: '1-B'
+            classTeacher: 'Class 1-B',
+            subjectHead: 'Hindi'
           },
           {
             _id: 3,
             name: 'Vineet Sethi',
             email: 'sdfaf4@gmail.com',
             mobile: '8976540321',
-            class: '2-A'
+            classTeacher: 'Class 2-A',
+            subjectHead: 'Maths'
           },
           {
             _id: 4,
             name: 'Aditya Saini',
             email: 'sdfaf55@gmail.com',
             mobile: '8976520321',
-            class: '2-B'
+            classTeacher: 'Class 3-A',
+            subjectHead: 'Science'
           },
         ];
         this.setState({records: re})
@@ -113,8 +117,15 @@ class ManageStaffData extends Component {
               field: "mobile",
             },
             {
-              title: "Class",
-              field: "class",
+              title: "Class Teacher",
+              field: "classTeacher",
+            },
+            {
+              title: "Subject Head",
+              field: "subjectHead",
+            },
+            {
+              title: "Class & Subjects",
               render: this.studentHyperlink
             },
             {
@@ -128,9 +139,14 @@ class ManageStaffData extends Component {
 
     studentHyperlink = (props) => {
       return(
-        <>
-        <Link onClick={() => this.setState({selectedClass:props.class, isModalVisible: true})}>{props.class}</Link>
-        </>
+        <span>
+          <ReactTooltip id='subjects' type='warning' effect='solid'>
+              <span>show Subjects</span>
+          </ReactTooltip>
+          <button data-tip data-for="subjects" onClick={() => this.setState({selectedTeacher:props.name, isModalVisible: !this.state.isModalVisible})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+              <i className="mdi mdi-link-variant" style={{fontSize:'17px'}}></i>
+          </button>    
+        </span>
       )
   }
 
@@ -175,11 +191,24 @@ class ManageStaffData extends Component {
             {/* ================================= */}
             <Modal show={this.state.isModalVisible} onHide={() => this.handleClose()}>
         <Modal.Header closeButton>
-        <h3 className="page-title"> {this.state.selectedClass} - Subjects </h3>
+        <h3 className="page-title"> Associate Teacher - {this.state.selectedTeacher} with Classes & Subjects </h3>
         </Modal.Header>
         <div className="card">
             <div className="card-body">
                 <form>
+                  <div className="row">
+                    <div className="col-md-12">
+                        <Form.Group className="row">
+                        <label className="col-sm-2 col-form-label">Class <span style={this.state.startstyle}>*</span></label>
+                        <div className="col-sm-10">
+                        <select className="form-control">
+                            <option>Class 2-B</option>
+                            <option>Class 3-C</option>
+                        </select>
+                        </div>
+                        </Form.Group>
+                    </div>
+                  </div>
                     <div className="row">
                         <div className="col-sm-6">
                             <Form.Group>
@@ -222,15 +251,17 @@ class ManageStaffData extends Component {
                             </Form.Group>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col-sm-3">
+                            <button type="button" className="btn btn-primary" style={{lineHeight:1.5, float:'right'}}>Add More</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
         <Modal.Footer style={{backgroundColor: '#ffffff'}}>
           <Button variant="secondary" onClick={() => this.handleClose()}>
             Close
-          </Button>
-          <Button variant="primary" onClick={() => this.handleClose()}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

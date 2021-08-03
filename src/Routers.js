@@ -21,6 +21,7 @@ import ManageClassForEmployees from './modules/schooladmin/ManageClass4Employees
 import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
 import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
 import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
+import ManageConcessionData from './modules/schooladmin/ManageConcessionData/ManageConcessionData';
 
 // common
 import Login from './modules/Login';
@@ -46,12 +47,13 @@ class Routers extends Component {
           <Route path="/admin/feedata" component={ManageFeeData} />
           <Route path="/admin/class4employees" component={ManageClassForEmployees} />
           <Route path="/admin/staffmembers" component={ManageStaffData} />
-          <Route path="/admin/accesslevels" component={AccessLevels} />
+					<Route path="/admin/accesslevels" component={AccessLevels} />
           <Route path="/admin/subjects" component={ManageSubjects} />
           <Route path="/admin/busdata" component={ManageBusData} />
           <Route path="/admin/addstaff" component={AddStaff} />
           <Route path="/admin/addclass4employees" component={AddClass4Employees} />
           <Route path="/admin/addaccesslevels" component={AddAccessLevels} />
+					<Route path="/admin/concession" component={ManageConcessionData} />
 
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 class AddStaff extends Component {
     constructor(props){
@@ -138,12 +139,10 @@ class AddStaff extends Component {
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Class <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
-                                                <select className="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
+                                                <DropdownMultiselect
+                                                    options={["1", "2", "3", "4", "5"]}
+                                                    name="Classes"
+                                                />
                                             </div>
                                             </Form.Group>
                                         </div>
@@ -151,12 +150,33 @@ class AddStaff extends Component {
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Subject <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
+                                                <DropdownMultiselect
+                                                    options={["English", "Yoga", "Math", "Music", "Drawing"]}
+                                                    name="Subjects"
+                                                />
+                                            </div>
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Class Teacher<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
                                                 <select className="form-control">
-                                                    <option>English</option>
-                                                    <option>Yoga</option>
-                                                    <option>Math</option>
-                                                    <option>Music</option>
-                                                    <option>Drawing</option>
+                                                    <option>ram</option>
+                                                    <option>sham</option>
+                                                </select>
+                                            </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Subject Head<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
+                                                <select className="form-control">
+                                                    <option>Ram</option>
+                                                    <option>Yogi</option>
                                                 </select>
                                             </div>
                                             </Form.Group>
