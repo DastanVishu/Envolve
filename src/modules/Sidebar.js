@@ -124,6 +124,12 @@ class Sidebar extends Component {
                 <span className="menu-title"> Fee Data</span>
               </Link>
             </li>
+            <li className={ this.isPathActive('/admin/studentsfees') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/studentsfees">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Students Fees</span>
+              </Link>
+            </li>
             <li className={ this.isPathActive('/admin/busdata') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/busdata">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>

@@ -22,6 +22,9 @@ import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
 import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
 import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
 import ManageConcessionData from './modules/schooladmin/ManageConcessionData/ManageConcessionData';
+import CreateFees from './modules/schooladmin/ManageFeeData/CreateFees';
+import StudentsFees from './modules/schooladmin/ManageFeeData/StudentsFees';
+import SubmitStudentFee from './modules/schooladmin/ManageFeeData/SubmitStudentFee';
 
 // common
 import Login from './modules/Login';
@@ -54,6 +57,9 @@ class Routers extends Component {
           <Route path="/admin/addclass4employees" component={AddClass4Employees} />
           <Route path="/admin/addaccesslevels" component={AddAccessLevels} />
 					<Route path="/admin/concession" component={ManageConcessionData} />
+          <Route path="/admin/createfees" component={CreateFees} />
+          <Route path="/admin/studentsfees" component={StudentsFees} />
+          <Route path="/admin/submitstudentfee" component={SubmitStudentFee} />
 
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
