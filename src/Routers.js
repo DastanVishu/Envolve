@@ -25,6 +25,8 @@ import ManageConcessionData from './modules/schooladmin/ManageConcessionData/Man
 import CreateFees from './modules/schooladmin/ManageFeeData/CreateFees';
 import StudentsFees from './modules/schooladmin/ManageFeeData/StudentsFees';
 import SubmitStudentFee from './modules/schooladmin/ManageFeeData/SubmitStudentFee';
+import AddBusRoute from './modules/schooladmin/ManageBusData/AddBusRoute';
+import ManageCategoryData from './modules/schooladmin/MasterData/ManageCategoryData';
 
 // common
 import Login from './modules/Login';
@@ -56,10 +58,12 @@ class Routers extends Component {
           <Route path="/admin/addstaff" component={AddStaff} />
           <Route path="/admin/addclass4employees" component={AddClass4Employees} />
           <Route path="/admin/addaccesslevels" component={AddAccessLevels} />
-					<Route path="/admin/concession" component={ManageConcessionData} />
           <Route path="/admin/createfees" component={CreateFees} />
           <Route path="/admin/studentsfees" component={StudentsFees} />
           <Route path="/admin/submitstudentfee" component={SubmitStudentFee} />
+					<Route path="/admin/addbusroute" component={AddBusRoute} />
+					<Route path="/admin/masterdata/category" component={ManageCategoryData} />
+          <Route path="/admin/masterdata/concession" component={ManageConcessionData} />
 
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />

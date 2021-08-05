@@ -142,10 +142,19 @@ class Sidebar extends Component {
                 <span className="menu-title">Access Levels</span>
               </Link>
             </li>
-						<li className={ this.isPathActive('/admin/concession') ? 'nav-item active' : 'nav-item' }>
-              <Link className="nav-link" to="/admin/concession">
+						{/* ===================================== for master data route =============================== */}
+						<div className="dropdown-divider"></div>
+            <li className="nav-item nav-category">Master - Data</li>
+						<li className={ this.isPathActive('/admin/masterdata/concession') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/masterdata/concession">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span className="menu-title">Concession</span>
+                <span className="menu-title">Concession ID</span>
+              </Link>
+            </li>
+						<li className={ this.isPathActive('/admin/masterdata/category') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/masterdata/category">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Category</span>
               </Link>
             </li>
             {/* ============================================================================================= */}

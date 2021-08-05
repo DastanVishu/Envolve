@@ -146,7 +146,7 @@ class AddStaff extends Component {
                                             </div>
                                             </Form.Group>
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="col-md-5">
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Subject <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
@@ -157,6 +157,9 @@ class AddStaff extends Component {
                                             </div>
                                             </Form.Group>
                                         </div>
+                                        <div className="col-sm-1">
+                                            <button type="submit" className="btn btn-primary ml-2" style={{lineHeight:1.5, float:'right', borderRadius:'25px', width:'45px'}}>+</button>
+                                        </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
@@ -164,8 +167,8 @@ class AddStaff extends Component {
                                             <label className="col-sm-3 col-form-label">Class Teacher<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <select className="form-control">
-                                                    <option>ram</option>
-                                                    <option>sham</option>
+                                                    <option>math</option>
+                                                    <option>english</option>
                                                 </select>
                                             </div>
                                             </Form.Group>
@@ -175,8 +178,8 @@ class AddStaff extends Component {
                                             <label className="col-sm-3 col-form-label">Subject Head<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <select className="form-control">
-                                                    <option>Ram</option>
-                                                    <option>Yogi</option>
+                                                    <option>math</option>
+                                                    <option>english</option>
                                                 </select>
                                             </div>
                                             </Form.Group>

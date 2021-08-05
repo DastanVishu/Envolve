@@ -3,6 +3,7 @@ import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
+import ToggleDays from "./ToggleDays";
 
 class ManageBusData extends Component {
     constructor(props){
@@ -21,17 +22,24 @@ class ManageBusData extends Component {
         let re = [
           {
             _id: 1,
+						routeNo:'route-1',
             busNo:'CH-02',
             driver:"maan singh",
-            route:"sector 21",
-            student:'10'
+            monitor:"sector 21",
+            start:"school",
+						stop:"sector-15",
+						student:"20",
+						
           },
           {
             _id: 2,
+						routeNo:'route-2',
             busNo:'CH-04',
-            driver:"ram singh",
-            route:"sector 11",
-            student:'20'
+            driver:"amrit singh",
+            monitor:"kamal",
+            start:"school",
+						stop:"sector-16",
+						student:"22",
           },
         ];
         this.setState({records: re})
@@ -86,6 +94,10 @@ class ManageBusData extends Component {
                 render: this.DeactiveAction,
             },
             {
+              title: "Route No.",
+              field: "routeNo",
+            },
+						{
               title: "Bus No.",
               field: "busNo",
             },
@@ -95,11 +107,19 @@ class ManageBusData extends Component {
               render: this.DriverHyperlink
             },
             {
-              title: "Route",
-              field: "route",
+              title: "Monitor",
+              field: "monitor",
             },
             {
-              title: "Student",
+              title: "Start",
+              field: "start",
+            },
+            {
+              title: "Stop",
+              field: "stop",
+            },
+            {
+              title: "Students",
               field: "student",
               render: this.studentHyperlink
             },
@@ -133,49 +153,11 @@ class ManageBusData extends Component {
             <div>
                 <div className="page-header">
                 <h3 className="page-title"> Bus Data </h3>
+								<Link className="nav-link" to="/admin/addbusroute">
+										<button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Add</button>
+								</Link>
                 </div>
                 <div className="row">
-                    <div className="col-lg-12 grid-margin stretch-card">    
-                        <div className="card">
-                            <div className="card-body">
-                                <form className="forms-sample">
-                                    <div className="row">
-                                        <div className="col-md-4">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Bus No.<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
-                                                <Form.Control  type="text" />
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                        <div className="col-md-4">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Driver<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
-                                                <Form.Control  type="text" />
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                        <div className="col-md-4">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Route<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
-                                                <Form.Control  type="text" />
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                    <div className="col-md-12">
-                                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5, float:'right'}}>Add</button>
-                                        </div>
-                                    </div>
-                                    {/* ========================================================== */}
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="col-lg-12 grid-margin stretch-card">
                         <div className="card">
                         <nav aria-label="breadcrumb">
