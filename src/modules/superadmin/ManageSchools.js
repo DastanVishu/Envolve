@@ -80,6 +80,34 @@ class ManageSchool extends Component {
     )
 }
 
+  PrincipalHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.principal}
+        </Link>
+      </span>
+    )
+  }
+  StudentCountHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.studentCount}
+        </Link>
+      </span>
+    )
+  }
+  TeacherCountHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.teacherCount}
+        </Link>
+      </span>
+    )
+  }
+
   render() {
     const fields = [
       {
@@ -96,16 +124,16 @@ class ManageSchool extends Component {
         field: "schoolName",
       },
       {
-        field: "principal",
         title: "Principal ",
+        render: this.PrincipalHyperLink
       },
       {
-        field: "teacherCount",
         title: "Teacher No.",
+        render: this.TeacherCountHyperLink
       },
       {
-        field: "studentCount",
         title: "Student No.",
+        render: this.StudentCountHyperLink
       },
       {
         field: "city",

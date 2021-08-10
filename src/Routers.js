@@ -21,7 +21,7 @@ import ManageClassForEmployees from './modules/schooladmin/ManageClass4Employees
 import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
 import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
 import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
-import ManageConcessionData from './modules/schooladmin/ManageConcessionData/ManageConcessionData';
+import ManageConcessionData from './modules/schooladmin/MasterData/ManageConcessionData';
 import CreateFees from './modules/schooladmin/ManageFeeData/CreateFees';
 import StudentsFees from './modules/schooladmin/ManageFeeData/StudentsFees';
 import SubmitStudentFee from './modules/schooladmin/ManageFeeData/SubmitStudentFee';

@@ -16,7 +16,7 @@ class SubmitStudentFee extends Component {
             color: 'red',
             fontSize: '14px'
           },
-          isModalVisible: false,
+          isModalVisible2: false,
           selectedClass: '',
         }
     }
@@ -87,13 +87,17 @@ class SubmitStudentFee extends Component {
         )
     }
 
+    handleClose2 = () => {
+        this.setState({selectedstudent:{}, isModalVisible2: false})
+      }
+
     render() {
         return(
             <div>
                 <div className="page-header">
                 <h3 className="page-title"> Pay Fees </h3>
                 <Link className="nav-link" to="/admin/submitstudentfee">
-                    <button type="button" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Previous Fee Records</button>
+                    <button type="button"onClick={()=> this.setState({isModalVisible2: true})} className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Previous Fee Records</button>
                 </Link>
                 </div>
                 <div className="row">
@@ -149,7 +153,12 @@ class SubmitStudentFee extends Component {
                                             <Form.Group className="row">
                                             <label className="col-sm-3 col-form-label">Year<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
-                                                <Form.Control type="date" className="form-control" />
+                                                <select className="form-control">
+                                                    <option>2022</option>
+                                                    <option>2021</option>
+                                                    <option>2020</option>
+                                                    <option>2019</option>
+                                                </select>
                                             </div>
                                             </Form.Group>
                                         </div>
@@ -159,7 +168,7 @@ class SubmitStudentFee extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Admission fees<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Admission Fees<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -167,25 +176,7 @@ class SubmitStudentFee extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Activity fees<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
-                                                <Form.Control type="text" className="form-control" />
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Tution fees<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9">
-                                                <Form.Control type="text" className="form-control" />
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Security fees<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Activity Fees<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -195,7 +186,7 @@ class SubmitStudentFee extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Sports fees<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Tution Fees<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -203,7 +194,7 @@ class SubmitStudentFee extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Late fees<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Security Fees<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -213,7 +204,25 @@ class SubmitStudentFee extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Bus fees<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Sports Fees<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
+                                                <Form.Control type="text" className="form-control" />
+                                            </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Late Fees<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9">
+                                                <Form.Control type="text" className="form-control" />
+                                            </div>
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Bus Fees<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -233,7 +242,7 @@ class SubmitStudentFee extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Concession Apple<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Concession Apply<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="text" className="form-control" />
                                             </div>
@@ -241,6 +250,17 @@ class SubmitStudentFee extends Component {
                                         </div>
                                     </div>
 
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <Form.Group className="row">
+                                            <label className="col-sm-3 col-form-label">Total Amount<span style={this.state.startstyle}>*</span></label>
+                                            <div className="col-sm-9 col-form-label">
+                                                <sapn>40000</sapn>
+                                            </div>
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+                                    <h4 className="card-title">Payment Section</h4>
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
@@ -299,7 +319,7 @@ class SubmitStudentFee extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Realized Date: <span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Release Date: <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="date" className="form-control" />
                                             </div>
@@ -307,7 +327,7 @@ class SubmitStudentFee extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Cheque status:<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Cheque Status:<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                             <select className="form-control">
                                                 <option>open</option>
@@ -318,16 +338,6 @@ class SubmitStudentFee extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Total Amount<span style={this.state.startstyle}>*</span></label>
-                                            <div className="col-sm-9 col-form-label">
-                                                <sapn>40000</sapn>
-                                            </div>
-                                            </Form.Group>
-                                        </div>
-                                    </div>
                                     <div className="row mt-3">
                                         <div className="col-sm-12">
                                             <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5, float:'right'}}>Pay Fees</button>
@@ -339,15 +349,42 @@ class SubmitStudentFee extends Component {
                     </div>
                     <div className="col-lg-12 grid-margin stretch-card">
                         <div className="card">                 
-                            <MaterialTable
-                            title=""
-                            data={this.state.records}
-                            columns={this.field()}
-                            options={{ search: true, paging: true, exportButton: true, }}
-                            />
+
                         </div>
                     </div>
                 </div>
+
+            {/* ================================= */}
+            <Modal show={this.state.isModalVisible2} size="xl" onHide={() => this.handleClose2()}>
+                <Modal.Header closeButton>
+                    <h3 className="page-title">Previous Fee Records</h3>
+                </Modal.Header>
+                    <div className="card">
+                        <div className="card-body">
+                            <MaterialTable
+                                title=""
+                                data={this.state.records}
+                                columns={this.field()}
+                                options={{ search: false, paging: true, exportButton: true, }}
+                                />
+                        </div>
+                    </div>
+                <Modal.Footer style={{backgroundColor: '#ffffff'}}>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <span>FEE ONCE PAID IS NOT REFUNDABLE</span>
+                    </div>
+                  </div>
+                    <Button variant="secondary" onClick={() => this.handleClose2()}>
+                        Print
+                    </Button>
+                    <Button variant="secondary" onClick={() => this.handleClose2()}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            {/* ================================= */}
+
             </div>
         )
     }

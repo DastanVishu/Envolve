@@ -90,6 +90,16 @@ class ManageClassForEmployees extends Component {
       )
   }
 
+  NameHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.name}
+        </Link>
+      </span>
+    )
+  }
+
     field = () => {
         const fields = [
             {
@@ -101,7 +111,7 @@ class ManageClassForEmployees extends Component {
             },
             {
               title: "Name",
-              field: "name",
+              render: this.NameHyperLink
             },
             {
               title: "Email",

@@ -78,10 +78,17 @@ class AccessLevels extends Component {
         )
     }
 
-  userHyperlink = (props) => {
+  UserNameHyperlink = (props) => {
     return(
       <>
       <Link to="/admin/accesslevels">{props.username}</Link>
+      </>
+    )
+  }
+  UserHyperlink = (props) => {
+    return(
+      <>
+      <Link to="/admin/accesslevels">{props.user}</Link>
       </>
     )
   }
@@ -97,12 +104,11 @@ class AccessLevels extends Component {
             },
             {
               title: "Username",
-              field: "username",
-              render: this.userHyperlink
+              render: this.UserNameHyperlink
             },
             {
               title: "User",
-              field: "user",
+              render: this.UserHyperlink
             },
             {
               title: "Category",

@@ -14,7 +14,9 @@ class ManageBusData extends Component {
           startstyle: {
             color: 'red',
             fontSize: '14px'
-          }
+          },
+					isModalVisible: false,
+					selectedRoute: '',
         }
     }
 
@@ -25,7 +27,7 @@ class ManageBusData extends Component {
 						routeNo:'route-1',
             busNo:'CH-02',
             driver:"maan singh",
-            monitor:"sector 21",
+            monitor:"meena",
             start:"school",
 						stop:"sector-15",
 						student:"20",
@@ -95,7 +97,8 @@ class ManageBusData extends Component {
             },
             {
               title: "Route No.",
-              field: "routeNo",
+							field: "routeNo",
+              render: this.routeHyperlink
             },
 						{
               title: "Bus No.",
@@ -147,6 +150,22 @@ class ManageBusData extends Component {
           </>
         )
     }
+		routeHyperlink = (props) => {
+      return(
+        <span>
+          <ReactTooltip id='subjects' type='warning' effect='solid'>
+              <span>show route details</span>
+          </ReactTooltip>
+          <button data-tip data-for="subjects" onClick={() => this.setState({selectedRoute:props.routeNo, isModalVisible: !this.state.isModalVisible})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+						{props.routeNo}
+          </button>    
+        </span>
+      )
+  }
+
+  handleClose = () => {
+    this.setState({selectedClass:"", isModalVisible: false})
+  }
 
     render() {
         return(
@@ -178,6 +197,71 @@ class ManageBusData extends Component {
                         </div>
                     </div>
                 </div>
+								{/* ================================= */}
+								<Modal show={this.state.isModalVisible} onHide={() => this.handleClose()}>
+										<Modal.Header closeButton>
+										<h3 className="page-title"> {this.state.selectedRoute} </h3>
+										</Modal.Header>
+										<div className="card">
+												<div className="card-body">
+														<form>
+															<div className="row">
+																<span className="col-md-6">
+																		Bus No./Id : SN001
+																</span>
+																<span className="col-md-6">
+																		Time : 8:00AM - 3:00PM
+																</span>
+															</div>
+																<div className="row">
+																		<span className="col-sm-12">
+																			Operates on : Mon, Tue, Wed, Thurs, Fri
+																		</span>
+																</div>
+																<div className="row">
+																		<span className="col-md-6">
+																				Bus Driver : <Link>Ram Singh</Link>
+																		</span>
+																		<span className="col-md-6">
+																				Bus Monitor : <Link>Meena</Link>
+																		</span>
+																</div>
+																<div className="row">
+																		<span className="col-md-6">
+																				Capacity : 20
+																		</span>
+																		<span className="col-md-6">
+																				Students : <Link>20</Link>
+																		</span>
+																</div>
+																<div className="row">
+																		<span className="col-md-12">
+																				Start From : 20
+																		</span>
+																</div>
+																<div className="row">
+																		<span className="col-md-12">
+																				Stop At(Destination) : Sector-14, Sector-15, Sector-16
+																		</span>
+																</div>
+																<div className="row">
+																		<span className="col-md-12">
+																				Status : Active
+																		</span>
+																</div>
+														</form>
+												</div>
+										</div>
+										<Modal.Footer style={{backgroundColor: '#ffffff'}}>
+											<Button variant="primary">
+												Edit
+											</Button>
+											<Button variant="secondary" onClick={() => this.handleClose()}>
+												Close
+											</Button>
+										</Modal.Footer>
+								</Modal>
+            {/* ================================= */}
             </div>
         )
     }

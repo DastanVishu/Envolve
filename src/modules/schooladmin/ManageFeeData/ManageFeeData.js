@@ -65,11 +65,31 @@ class ManageFeeData extends Component {
       )
   }
 
+  ClassHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.class}
+        </Link>
+      </span>
+    )
+  }
+
+  TotalFeesHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.totalFees}
+        </Link>
+      </span>
+    )
+  }
+
     field = () => {
         const fields = [
             {
               title: "Class",
-              field: "class",
+              render: this.ClassHyperLink
             },
             {
               title: "Month",
@@ -77,7 +97,7 @@ class ManageFeeData extends Component {
             },
             {
               title: "Total Fees",
-              field: "totalFees",
+              render: this.TotalFeesHyperLink
             },
             {
               name: "action",
@@ -95,7 +115,7 @@ class ManageFeeData extends Component {
                   <h3 className="page-title"> Manage Fees </h3>
                   
                   <Link className="nav-link" to="/admin/createfees">
-                    <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Add</button>
+                    <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Create Fees</button>
                   </Link>
                       
                 </div>

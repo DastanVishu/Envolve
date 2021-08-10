@@ -95,7 +95,29 @@ class ManageStaffData extends Component {
       )
   }
 
-    field = () => {
+  NameHyperLink = (props) => {
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    console.log(props)
+    return(
+      <span>
+        <Link>
+          {props.name}
+        </Link>
+      </span>
+    )
+  }
+
+  ClassTeacherHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.classTeacher}
+        </Link>
+      </span>
+    )
+  }
+
+  field = () => {
         const fields = [
             {
                 name: "action",
@@ -106,7 +128,7 @@ class ManageStaffData extends Component {
             },
             {
               title: "Name",
-              field: "name",
+              render: this.NameHyperLink
             },
             {
               title: "Email",
@@ -118,7 +140,7 @@ class ManageStaffData extends Component {
             },
             {
               title: "Class Teacher",
-              field: "classTeacher",
+              render: this.ClassTeacherHyperLink
             },
             {
               title: "Subject Head",
@@ -135,9 +157,9 @@ class ManageStaffData extends Component {
             },
         ];
         return fields;
-    }
+  }
 
-    studentHyperlink = (props) => {
+  studentHyperlink = (props) => {
       return(
         <span>
           <ReactTooltip id='subjects' type='warning' effect='solid'>
@@ -150,9 +172,9 @@ class ManageStaffData extends Component {
       )
   }
 
-    handleClose = () => {
-      this.setState({selectedClass:"", isModalVisible: false})
-    }
+  handleClose = () => {
+    this.setState({selectedClass:"", isModalVisible: false})
+  }
 
     render() {
         return(
@@ -171,10 +193,10 @@ class ManageStaffData extends Component {
                         <div className="card">
                           <nav aria-label="breadcrumb">
                               <div className="row">
-                                <div class="col">
-                                  <button type="button" class="btn mr-0 pr-0">
-                                    <i class="mdi mdi-import" style={{fontSize: "24px"}}></i>
-                                  </button>Import Bulk Data (<code><a href="" class="sm-text">Download &amp; View File Format</a></code>)
+                                <div className="col">
+                                  <button type="button" className="btn mr-0 pr-0">
+                                    <i className="mdi mdi-import" style={{fontSize: "24px"}}></i>
+                                  </button>Import Bulk Data (<code><a href="" className="sm-text">Download &amp; View File Format</a></code>)
                                 </div>
                               </div>            
                           </nav>                     

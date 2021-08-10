@@ -14,6 +14,7 @@ class StudentsFees extends Component {
         fontSize: '14px'
       },
       isModalVisible: false,
+      isModalVisible2: false,
       selectedstudent: {},
     }
   }
@@ -49,28 +50,52 @@ class StudentsFees extends Component {
       },
 
     ];
-    this.setState({records: re})
+    let re2 = [
+      {
+        class: '1-A',
+        feesForMonths: 'April May',
+        feesPaid:'16000',
+        amountPaid:'10000',
+        paymentDate:'9-04-2021',
+        notPaid:'6200'
+      },
+    ];
+    this.setState({records: re, records2: re2})
   }
 
   renderAction = (props, index) => {
     if(props.pending || props.paid == "Not Paid"){
-        return(<span>
+        return(
+          <span>
             <ReactTooltip id='PayNow' effect='solid'>
               <span>Pay Fees</span>
             </ReactTooltip>
             <Link to="/admin/submitstudentfee">
-            <button data-tip data-for="PayNow"type="button" className="btn btn-outline-success" style={{padding:'8px'}}>
-                    Pay Now
-                </button>
+              <button data-tip data-for="PayNow"type="button" className="btn btn-outline-success" style={{padding:'8px'}}>
+                Pay Now
+              </button>
             </Link>
-          </span>)
+            <ReactTooltip id='FeeRecords' type='warning' effect='solid'>
+              <span>Fee Records</span>
+            </ReactTooltip>
+              <button data-tip data-for="FeeRecords" onClick={()=> this.setState({isModalVisible2: true, selectedstudent:props})} type="button" className="btn btn-outline-warning mt-1" style={{padding:'8px'}}>
+                Fee Records
+              </button>  
+          </span>
+          )
     } else {
         return(
         <span>
+          <ReactTooltip id='FeeRecords' type='warning' effect='solid'>
+              <span>Fee Records</span>
+            </ReactTooltip>
+              <button data-tip data-for="FeeRecords" onClick={()=> this.setState({isModalVisible2: true, selectedstudent:props})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+                Fee Records
+              </button>
             <ReactTooltip id='Print' type='warning' effect='solid'>
               <span>Print</span>
             </ReactTooltip>
-              <button data-tip data-for="Print" onClick={()=> this.setState({isModalVisible: true, selectedstudent:props})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+              <button data-tip data-for="Print" onClick={()=> this.setState({isModalVisible: true, selectedstudent:props})} type="button" className="btn btn-outline-warning mt-1" style={{padding:'8px'}}>
                   Print
               </button>
         </span>
@@ -78,9 +103,64 @@ class StudentsFees extends Component {
     }
   }
 
-    handleClose = () => {
-        this.setState({selectedstudent:{}, isModalVisible: false})
-    }
+  handleClose = () => {
+    this.setState({selectedstudent:{}, isModalVisible: false})
+  }
+  handleClose2 = () => {
+    this.setState({selectedstudent:{}, isModalVisible2: false})
+  }
+
+  StudentHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.student}
+        </Link>
+      </span>
+    )
+  }  
+
+  ClassHyperLink = (props) => {
+    return(
+      <span>
+        <Link>
+          {props.class}
+        </Link>
+      </span>
+    )
+  }
+
+  // =========================================================
+  field = () => {
+    const fields = [
+        {
+          title: "Class",
+          field: "class",
+        },
+        {
+          title: "fees For Months",
+          field: "feesForMonths",
+        },
+        {
+          title: "Fees Paid",
+          field: "feesPaid",
+        },
+        {
+          title: "Amount Paid",
+          field: "amountPaid",
+        },
+        {
+          title: "Payment Date",
+          field: "paymentDate",
+        },
+        {
+          title: "Not Paid",
+          field: "notPaid",
+        }
+    ];
+    return fields;
+  }
+  // =========================================================
 
   render() {
     const fields = [
@@ -89,12 +169,12 @@ class StudentsFees extends Component {
         field: "admissionNo",
       },
       {
-        field: "student",
         title: "Student",
+        render: this.StudentHyperLink
       },
       {
-        field: "class",
         title: "Class",
+        render: this.ClassHyperLink
       },
       {
         field: "paid",
@@ -297,6 +377,36 @@ class StudentsFees extends Component {
                     </Button>
                     <Button variant="primary" onClick={() => this.handleClose()}>
                         Print
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            {/* ================================= */}
+            {/* ================================= */}
+            <Modal show={this.state.isModalVisible2} size="xl" onHide={() => this.handleClose2()}>
+                <Modal.Header closeButton>
+                    <h3 className="page-title">Previous Fee Records</h3>
+                </Modal.Header>
+                    <div className="card">
+                        <div className="card-body">
+                            <MaterialTable
+                                title=""
+                                data={this.state.records2}
+                                columns={this.field()}
+                                options={{ search: false, paging: true, exportButton: true, }}
+                                />
+                        </div>
+                    </div>
+                <Modal.Footer style={{backgroundColor: '#ffffff'}}>
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <span>FEE ONCE PAID IS NOT REFUNDABLE</span>
+                    </div>
+                  </div>
+                    <Button variant="secondary" onClick={() => this.handleClose2()}>
+                        Print
+                    </Button>
+                    <Button variant="secondary" onClick={() => this.handleClose2()}>
+                        Close
                     </Button>
                 </Modal.Footer>
             </Modal>

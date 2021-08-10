@@ -9,7 +9,7 @@ class CreateFees extends Component {
         super(props);
         this.state = {
           records: [],
-          totalAmount: 2000,
+          totalAmount: 16200.00,
           tooltipOpen: false,
           startstyle: {
             color: 'red',
@@ -24,31 +24,31 @@ class CreateFees extends Component {
         let re = [
           {
             particulars: 'Admission',
-            amount: '260000.00',
+            amount: '10000.00',
           },
           {
             particulars: 'Tution',
-            amount: '260000.00',
+            amount: '2000.00',
           },
           {
             particulars: 'Annual',
-            amount: '260000.00',
+            amount: '2000.00',
           },
           {
             particulars: 'Sport',
-            amount: '1000.00',
+            amount: '500.00',
           },
           {
             particulars: 'Activity',
-            amount: '2600',
+            amount: '500',
           },
           {
             particulars: 'Security',
-            amount: '260',
+            amount: '1000',
           },
           {
             particulars: 'Late',
-            amount: '2600',
+            amount: '200',
           },
         ];
         this.setState({records: re})
@@ -149,7 +149,7 @@ class CreateFees extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Last fee sate <span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Last Fee Date <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <Form.Control type="date" className="form-control" />
                                             </div>

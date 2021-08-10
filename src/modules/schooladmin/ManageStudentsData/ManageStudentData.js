@@ -72,6 +72,26 @@ DeactiveAction = (props, index) => {
     )
 }
 
+StudentHyperLink = (props) => {
+  return (
+    <span>
+      <Link>
+        {props.studentName}
+      </Link>
+    </span>
+  )
+}
+
+ClassHyperLink = (props) => {
+  return (
+    <span>
+      <Link>
+        {props.class}
+      </Link>
+    </span>
+  )
+}
+
   render() {
     const fields = [
       {
@@ -85,7 +105,7 @@ DeactiveAction = (props, index) => {
       },
       {
         title: "Student Name ",
-        field: "studentName",
+        render: this.StudentHyperLink
       },
       {
         title: "Admission ID",
@@ -96,8 +116,8 @@ DeactiveAction = (props, index) => {
         field: "admissionDate",
       },
       {
-        field: "class",
-        title: "Class ",
+        title: "Class",
+        render: this.ClassHyperLink
       },
       {
         field: "dob",
