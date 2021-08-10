@@ -140,7 +140,7 @@ class AddStaff extends Component {
                                             <label className="col-sm-3 col-form-label">Class <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                                 <DropdownMultiselect
-                                                    options={["1", "2", "3", "4", "5"]}
+                                                    options={["1-A","1-B","2-A","2-B","2-C","3-A","3-B","4-A","4-B"]}
                                                     name="Classes"
                                                 />
                                             </div>
@@ -164,7 +164,7 @@ class AddStaff extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Class Teacher<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Class Teacher{/*<span style={this.state.startstyle}>*</span>*/}</label>
                                             <div className="col-sm-9">
                                                 <select className="form-control">
                                                     <option>math</option>
@@ -175,7 +175,7 @@ class AddStaff extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Subject Head<span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Subject Head{/*<span style={this.state.startstyle}>*</span>*/}</label>
                                             <div className="col-sm-9">
                                                 <select className="form-control">
                                                     <option>math</option>

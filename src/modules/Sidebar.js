@@ -118,12 +118,6 @@ class Sidebar extends Component {
                 <span className="menu-title"> Class 4 Employees</span>
               </Link>
             </li>
-            <li className={ this.isPathActive('/admin/feedata') ? 'nav-item active' : 'nav-item' }>
-              <Link className="nav-link" to="/admin/feedata">
-                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span className="menu-title"> Fee Data</span>
-              </Link>
-            </li>
             <li className={ this.isPathActive('/admin/studentsfees') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/studentsfees">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
@@ -148,13 +142,19 @@ class Sidebar extends Component {
 						<li className={ this.isPathActive('/admin/masterdata/concession') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/masterdata/concession">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span className="menu-title">Concession ID</span>
+                <span className="menu-title">Concessions</span>
               </Link>
             </li>
 						<li className={ this.isPathActive('/admin/masterdata/category') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/masterdata/category">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span className="menu-title">Category</span>
+              </Link>
+            </li>
+						<li className={ this.isPathActive('/admin/masterdata/feedata') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/masterdata/feedata">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title"> Fee Data</span>
               </Link>
             </li>
             {/* ============================================================================================= */}

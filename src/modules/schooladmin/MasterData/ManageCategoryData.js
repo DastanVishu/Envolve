@@ -154,7 +154,7 @@ class ManageConcessionData extends Component {
                     </div>
 										<div className="col-lg-12 grid-margin stretch-card">
                         <div className="card">
-                        <nav aria-label="breadcrumb">
+                        {/*<nav aria-label="breadcrumb">
                             <div className="row">
                                 <div className="col">
                                 <button type="button" className="btn mr-0 pr-0">
@@ -162,7 +162,7 @@ class ManageConcessionData extends Component {
                                 </button>Import Bulk Data (<code><a href="" className="sm-text">Download &amp; View File Format</a></code>)
                                 </div>
                             </div>            
-                        </nav>                         
+                        </nav> */}                         
                             <MaterialTable
                             title=""
                             data={this.state.records}

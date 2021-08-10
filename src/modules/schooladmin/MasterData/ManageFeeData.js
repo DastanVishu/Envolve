@@ -50,9 +50,11 @@ class ManageFeeData extends Component {
             <ReactTooltip id='Edit' type='warning' effect='solid'>
               <span>Edit</span>
             </ReactTooltip>
-              <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+              <Link to="/admin/masterdata/createfees">
+							<button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                   <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
               </button>
+							</Link>
               
             <ReactTooltip id='Delete' type='error' effect='solid'>
               <span>Delete</span>
@@ -114,7 +116,7 @@ class ManageFeeData extends Component {
                 <div className="page-header">
                   <h3 className="page-title"> Manage Fees </h3>
                   
-                  <Link className="nav-link" to="/admin/createfees">
+                  <Link className="nav-link" to="/admin/masterdata/createfees">
                     <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Create Fees</button>
                   </Link>
                       

@@ -11,7 +11,7 @@ import ManageSchools from './modules/superadmin/ManageSchools';
 import AdminDashboard from './modules/schooladmin/Dashboard/AdminDashboard';
 import ClassInformation from './modules/schooladmin/ClassInformation/ClassInformation';
 import ManageBusData from './modules/schooladmin/ManageBusData/ManageBusData';
-import ManageFeeData from './modules/schooladmin/ManageFeeData/ManageFeeData';
+import ManageFeeData from './modules/schooladmin/MasterData/ManageFeeData';
 import ManageStaffData from './modules/schooladmin/MnagageStaffData/ManageStaffData';
 import ManageStudentData from './modules/schooladmin/ManageStudentsData/ManageStudentData';
 import AddStudent from './modules/schooladmin/ManageStudentsData/AddStudent';
@@ -22,7 +22,7 @@ import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
 import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
 import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
 import ManageConcessionData from './modules/schooladmin/MasterData/ManageConcessionData';
-import CreateFees from './modules/schooladmin/ManageFeeData/CreateFees';
+import CreateFees from './modules/schooladmin/MasterData/CreateFees';
 import StudentsFees from './modules/schooladmin/ManageFeeData/StudentsFees';
 import SubmitStudentFee from './modules/schooladmin/ManageFeeData/SubmitStudentFee';
 import AddBusRoute from './modules/schooladmin/ManageBusData/AddBusRoute';
@@ -49,7 +49,7 @@ class Routers extends Component {
           <Route path="/admin/classes" component={ClassInformation} />
           <Route path="/admin/students" component={ManageStudentData} />
 					<Route path="/admin/addstudent" component={AddStudent} />
-          <Route path="/admin/feedata" component={ManageFeeData} />
+          <Route path="/admin/masterdata/feedata" component={ManageFeeData} />
           <Route path="/admin/class4employees" component={ManageClassForEmployees} />
           <Route path="/admin/staffmembers" component={ManageStaffData} />
 					<Route path="/admin/accesslevels" component={AccessLevels} />
@@ -58,7 +58,7 @@ class Routers extends Component {
           <Route path="/admin/addstaff" component={AddStaff} />
           <Route path="/admin/addclass4employees" component={AddClass4Employees} />
           <Route path="/admin/addaccesslevels" component={AddAccessLevels} />
-          <Route path="/admin/createfees" component={CreateFees} />
+          <Route path="/admin/masterdata/createfees" component={CreateFees} />
           <Route path="/admin/studentsfees" component={StudentsFees} />
           <Route path="/admin/submitstudentfee" component={SubmitStudentFee} />
 					<Route path="/admin/addbusroute" component={AddBusRoute} />

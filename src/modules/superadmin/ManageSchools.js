@@ -44,12 +44,14 @@ class ManageSchool extends Component {
       <ReactTooltip id='Edit' type='warning' effect='solid'>
         <span>Edit</span>
       </ReactTooltip>
+				<Link to="setupschool">
         <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
             <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
         </button>
+				</Link>
       
       <ReactTooltip id='User' effect='solid'>
-        <span>User log</span>
+        <span>Access school admin</span>
       </ReactTooltip>
       <button data-tip data-for="User" type="button" className="btn btn-outline-primary" style={{padding:'8px'}}>
         <i className="mdi mdi-account-key"style={{fontSize:'17px'}}></i>
@@ -219,7 +221,7 @@ class ManageSchool extends Component {
 
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
-              <nav aria-label="breadcrumb">
+						{/*<nav aria-label="breadcrumb">
                   <div className="row">
                     <div className="col">
                       <button type="button" className="btn mr-0 pr-0">
@@ -227,7 +229,7 @@ class ManageSchool extends Component {
                       </button>Import Bulk Data (<code><a href="" className="sm-text">Download &amp; View File Format</a></code>)
                     </div>
                   </div>            
-              </nav>       
+						</nav>  */}     
               <MaterialTable
               title=""
               data={this.state.records}

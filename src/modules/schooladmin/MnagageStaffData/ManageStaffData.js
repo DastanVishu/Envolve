@@ -64,9 +64,11 @@ class ManageStaffData extends Component {
             <ReactTooltip id='Edit' type='warning' effect='solid'>
               <span>Edit</span>
             </ReactTooltip>
-              <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+            <Link to="/admin/addstaff">  
+						<button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                   <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
               </button>
+						</Link>
               
             <ReactTooltip id='Delete' type='error' effect='solid'>
               <span>Delete</span>

@@ -7,9 +7,11 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
+import authReducer from "./redux/reducers/auth"
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
-
+  auth: authReducer
 });
 
 const store = createStore(
@@ -25,8 +27,6 @@ const app = (
   </Provider>
 )
 
-ReactDOM.render(
-app
-, document.getElementById('root'));
+ReactDOM.render(app, document.getElementById('root'));
 
 serviceWorker.unregister();

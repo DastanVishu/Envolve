@@ -111,7 +111,7 @@ class AddClass4Employees extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <Form.Group className="row">
-                                            <label className="col-sm-3 col-form-label">Cateyory <span style={this.state.startstyle}>*</span></label>
+                                            <label className="col-sm-3 col-form-label">Category <span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-9">
                                             <select className="form-control">
                                                 <option>Driver</option>
