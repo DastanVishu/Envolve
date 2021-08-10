@@ -10,7 +10,7 @@ class Navbar extends Component {
         return (
           <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style={{background:'#fff'}}>
-              <Link className="navbar-brand brand-logo" to="/"><img src={require('../assets/images/Edvantum.png')} style={{height:'55px'}} alt="logo" /></Link>
+              <Link className="navbar-brand brand-logo" to="/"><img src={require('../../assets/images/Edvantum.png')} alt="logo" /></Link>
               <Link className="navbar-brand brand-logo-mini" to="/"><span style={{background:'white', display: 'block', margin: '10px', borderRadius: '12px', fontWeight:'bolder', fontSize:'21px'}}>E</span></Link>
             </div>
             <div className="navbar-menu-wrapper d-flex align-items-stretch">
@@ -53,7 +53,7 @@ class Navbar extends Component {
                   <Dropdown alignRight>
                     <Dropdown.Toggle className="nav-link count-indicator">
                       <div className="nav-profile-img">
-                          <img src={require("../assets/images/faces/face28.png")} alt="profile" />
+                          <img src={require("../../assets/images/faces/face28.png")} alt="profile" />
                         </div>
                         <div className="nav-profile-text">
                           <p className="mb-1 text-black">Henry Klein</p>
@@ -61,7 +61,7 @@ class Navbar extends Component {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="preview-list navbar-dropdown">
                       <div className="p-3 text-center bg-primary">
-                        <img className="img-avatar img-avatar48 img-avatar-thumb" src={require("../assets/images/faces/face28.png")} alt=""/>
+                        <img className="img-avatar img-avatar48 img-avatar-thumb" src={require("../../assets/images/faces/face28.png")} alt=""/>
                       </div>
                       <div className="p-2">
                         <h5 className="dropdown-header text-uppercase pl-2 text-dark">User Options</h5>

@@ -17,9 +17,18 @@ export const signInFail = (error = null) => {
 
 export const signIn = (userData) => {
     console.log("you clicked on signIn");
-    // return (dispatch) => {
-    //     axios.post().then().catch()
-    // }
+    if(userData.username && userData.password) {
+        return (dispatch) => {
+            axios.post(actionType.SITE_URL + '/auth/login', userData)
+            .then((response) => {
+                console.log(response);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
+    } else {
+        console.log("username and password is required")
+    }
 }
 
 export const logout = () => {

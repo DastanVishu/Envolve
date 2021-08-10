@@ -1,38 +1,40 @@
 import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Spinner from './modules/Spinner';
+import Spinner from './components/common/Spinner';
 // Super admin
-import Dashboard from './modules/superadmin/index';
-import AddSchool from './modules/superadmin/AddSchool';
-import ManageSchools from './modules/superadmin/ManageSchools';
+import Dashboard from './components/superadmin/index';
+import AddSchool from './components/superadmin/AddSchool';
+import ManageSchools from './components/superadmin/ManageSchools';
 
 // school admin
-import AdminDashboard from './modules/schooladmin/Dashboard/AdminDashboard';
-import ClassInformation from './modules/schooladmin/ClassInformation/ClassInformation';
-import ManageBusData from './modules/schooladmin/ManageBusData/ManageBusData';
-import ManageFeeData from './modules/schooladmin/MasterData/ManageFeeData';
-import ManageStaffData from './modules/schooladmin/MnagageStaffData/ManageStaffData';
-import ManageStudentData from './modules/schooladmin/ManageStudentsData/ManageStudentData';
-import AddStudent from './modules/schooladmin/ManageStudentsData/AddStudent';
-import ManageSubjects from './modules/schooladmin/ManageSubjects/ManageSubjects';
-import AccessLevels from './modules/schooladmin/AccessLevels/AccessLevels';
-import ManageClassForEmployees from './modules/schooladmin/ManageClass4Employees/ManageClassForEmployees';
-import AddStaff from './modules/schooladmin/MnagageStaffData/AddStarff';
-import AddClass4Employees from './modules/schooladmin/ManageClass4Employees/AddClass4Employees';
-import AddAccessLevels from './modules/schooladmin/AccessLevels/AddAccessLevels';
-import ManageConcessionData from './modules/schooladmin/MasterData/ManageConcessionData';
-import CreateFees from './modules/schooladmin/MasterData/CreateFees';
-import StudentsFees from './modules/schooladmin/ManageFeeData/StudentsFees';
-import SubmitStudentFee from './modules/schooladmin/ManageFeeData/SubmitStudentFee';
-import AddBusRoute from './modules/schooladmin/ManageBusData/AddBusRoute';
-import ManageCategoryData from './modules/schooladmin/MasterData/ManageCategoryData';
+import AdminDashboard from './components/schooladmin/Dashboard/AdminDashboard';
+import ClassInformation from './components/schooladmin/ClassInformation/ClassInformation';
+import ManageBusData from './components/schooladmin/ManageBusData/ManageBusData';
+import ManageFeeData from './components/schooladmin/MasterData/ManageFeeData';
+import ManageStaffData from './components/schooladmin/MnagageStaffData/ManageStaffData';
+import ManageStudentData from './components/schooladmin/ManageStudentsData/ManageStudentData';
+import AddStudent from './components/schooladmin/ManageStudentsData/AddStudent';
+import ManageSubjects from './components/schooladmin/ManageSubjects/ManageSubjects';
+import AccessLevels from './components/schooladmin/AccessLevels/AccessLevels';
+import ManageClassForEmployees from './components/schooladmin/ManageClass4Employees/ManageClassForEmployees';
+import AddStaff from './components/schooladmin/MnagageStaffData/AddStarff';
+import AddClass4Employees from './components/schooladmin/ManageClass4Employees/AddClass4Employees';
+import AddAccessLevels from './components/schooladmin/AccessLevels/AddAccessLevels';
+import ManageConcessionData from './components/schooladmin/MasterData/ManageConcessionData';
+import CreateFees from './components/schooladmin/MasterData/CreateFees';
+import StudentsFees from './components/schooladmin/ManageFeeData/StudentsFees';
+import SubmitStudentFee from './components/schooladmin/ManageFeeData/SubmitStudentFee';
+import AddBusRoute from './components/schooladmin/ManageBusData/AddBusRoute';
+import ManageCategoryData from './components/schooladmin/MasterData/ManageCategoryData';
+
+// auth
+import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 
 // common
-import Login from './modules/Login';
-import Logout from './modules/Logout';
-import Error404 from './modules/Error404';
-import Error500 from './modules/Error500';
+import Error404 from './components/common/pages/Error404';
+import Error500 from './components/common/pages/Error500';
 
 class Routers extends Component {
   render () {
@@ -65,9 +67,12 @@ class Routers extends Component {
 					<Route path="/admin/masterdata/category" component={ManageCategoryData} />
           <Route path="/admin/masterdata/concession" component={ManageConcessionData} />
 
+          {/* auth */}
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Login} />
+
+          {/* common */}
           <Route path="/error-404" component={ Error404 } />
           <Route path="/error-500" component={ Error500 } />
         </Switch>

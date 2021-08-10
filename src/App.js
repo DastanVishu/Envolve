@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.scss';
 import { withRouter } from 'react-router-dom';
 import Routers from './Routers';
-import Navbar from './modules/Navbar';
-import Sidebar from './modules/Sidebar';
-import Footer from './modules/Footer';
-import SettingsPanel from './modules/SettingsPanel';
+import Navbar from './components/common/Navbar';
+import Sidebar from './components/common/Sidebar';
+import Footer from './components/common/Footer';
+// import SettingsPanel from './modules/SettingsPanel';
 
 class App extends Component {
   state = {}
@@ -15,7 +15,7 @@ class App extends Component {
   render () {
     let navbarComponent = !this.state.isFullPageLayout ? <Navbar/> : '';
     let sidebarComponent = !this.state.isFullPageLayout ? <Sidebar/> : '';
-    let SettingsPanelComponent = !this.state.isFullPageLayout ? <SettingsPanel/> : '';
+    // let SettingsPanelComponent = !this.state.isFullPageLayout ? <SettingsPanel/> : '';
     let footerComponent = !this.state.isFullPageLayout ? <Footer/> : '';
     return (
       <div className="container-scroller">
@@ -25,7 +25,7 @@ class App extends Component {
           <div className="main-panel">
             <div className="content-wrapper">
               <Routers/>
-              { SettingsPanelComponent }
+              {/* { SettingsPanelComponent } */}
             </div>
             { footerComponent }
           </div>
