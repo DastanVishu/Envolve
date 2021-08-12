@@ -2,5 +2,11 @@ export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
 export const SIGNIN_FAIL = "SIGNIN_FAIL";
 export const LOGOUT = "LOGOUT";
 
-export const SITE_URL = "http://localhost:8088/api"
-// export const SITE_URL = "http://66.235.194.119:8088/api"
+export const SITE_URL = "http://localhost:8088"
+// export const SITE_URL = "http://66.235.194.119:8088"
+
+export const GET_CONCESSION_LIST_SUCCESS = "GET_CONCESSION_LIST_SUCCESS"
+export const ADD_CONCESSION_SUCCESS = "ADD_CONCESSION_SUCCESS"
+export const EDIT_CONCESSION_SUCCESS = "ADD_CONCESSION_SUCCESS"
+export const DELETE_CONCESSION_SUCCESS = "DELETE_CONCESSION_SUCCESS"
+export const CONCESSION_TASK_FAIL = "CONCESSION_TASK_FAIL"

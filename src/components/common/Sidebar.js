@@ -88,12 +88,6 @@ class Sidebar extends Component {
               </Link>
             </li>
             
-            <li className={ this.isPathActive('/admin/subjects') ? 'nav-item active' : 'nav-item' }>
-              <Link className="nav-link" to="/admin/subjects">
-                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span className="menu-title"> Subjects</span>
-              </Link>
-            </li>
             <li className={ this.isPathActive('/admin/classes') ? 'nav-item active' : 'nav-item' }>
               <Link className="nav-link" to="/admin/classes">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
@@ -149,6 +143,12 @@ class Sidebar extends Component {
               <Link className="nav-link" to="/admin/masterdata/category">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span className="menu-title">Category</span>
+              </Link>
+            </li>
+            <li className={ this.isPathActive('/admin/subjects') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/subjects">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title"> Subjects</span>
               </Link>
             </li>
 						<li className={ this.isPathActive('/admin/masterdata/feedata') ? 'nav-item active' : 'nav-item' }>

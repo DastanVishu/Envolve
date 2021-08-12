@@ -186,6 +186,12 @@ class AddStaff extends Component {
                                         </div>
                                     </div>
                                     <div className="row">
+                                    <Form.Group className="col-md-12">
+                                        <label htmlFor="exampleTextarea1">Introduction About Teacher</label>
+                                        <textarea className="form-control" id="exampleTextarea1" placeholder="150-200 words" rows="4"></textarea>
+                                    </Form.Group>
+                                    </div>
+                                    <div className="row">
                                         <div className="col-sm-12">
                                             <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5, float:'right'}}>Submit</button>
                                         </div>

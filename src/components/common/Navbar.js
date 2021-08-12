@@ -10,7 +10,7 @@ class Navbar extends Component {
         return (
           <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style={{background:'#fff'}}>
-              <Link className="navbar-brand brand-logo" to="/"><img src={require('../../assets/images/Edvantum.png')} alt="logo" /></Link>
+              <Link className="navbar-brand brand-logo" to="/"><img src={require('../../assets/images/Edvantum.png')} style={{height:'unset'}} alt="logo" /></Link>
               <Link className="navbar-brand brand-logo-mini" to="/"><span style={{background:'white', display: 'block', margin: '10px', borderRadius: '12px', fontWeight:'bolder', fontSize:'21px'}}>E</span></Link>
             </div>
             <div className="navbar-menu-wrapper d-flex align-items-stretch">

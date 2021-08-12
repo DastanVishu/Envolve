@@ -3,6 +3,11 @@ import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
+import * as actions from '../../redux/actions/concessions'
+import SimpleReactValidator from 'simple-react-validator';
+import { ToastContainer, toast } from "react-toastify";
+import { connect } from 'react-redux';
+
 
 class ManageCategoryData extends Component {
     constructor(props){
@@ -16,10 +21,18 @@ class ManageCategoryData extends Component {
           },
           isModalVisible: false,
           selectedClass: '',
+
+          concessionType:"",
+          concessionPercent:true,
+          concessionAmount:""
         }
+        this.validator = new SimpleReactValidator({autoForceUpdate: this})
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChanges = this.handleChanges.bind(this);
     }
 
     componentDidMount(){
+        this.props.getConcessionList()
         let re = [
           {
             _id: 1,
@@ -40,8 +53,6 @@ class ManageCategoryData extends Component {
 				
     }
 		
-    
-
     renderAction = (props) => {
     
         return(
@@ -64,22 +75,22 @@ class ManageCategoryData extends Component {
         )
     }
 		
-		DeactiveAction = (props, index) => {
+    DeactiveAction = (props, index) => {
 
-				return(
-					<span>
-						<ReactTooltip id='activate' type='error' effect='solid'>
-								<span>Activate/Deactive</span>
-							</ReactTooltip>  
-						<span  data-tip data-for="activate" className="form-check form-check-danger" style={{display:'inline-flex'}}>
-							<label className="form-check-label">
-								<input type="checkbox" className="form-check-input" defaultChecked />
-								<i className="input-helper"></i>
-							</label>
-						</span>
-					</span>
-				)
-		}
+        return(
+            <span>
+                <ReactTooltip id='activate' type='error' effect='solid'>
+                        <span>Activate/Deactive</span>
+                    </ReactTooltip>  
+                <span  data-tip data-for="activate" className="form-check form-check-danger" style={{display:'inline-flex'}}>
+                    <label className="form-check-label">
+                        <input type="checkbox" className="form-check-input" defaultChecked />
+                        <i className="input-helper"></i>
+                    </label>
+                </span>
+            </span>
+        )
+    }
 
     ShowSubjects = (props) => {
         console.log(props)
@@ -94,15 +105,15 @@ class ManageCategoryData extends Component {
 
     field = () => {
         const fields = [
-						{
-							// name: "",
-							// field: "Deactive",
-							name: "action",
-							title: "",
-							width: "0%",
-							align:"center",
-							render: this.DeactiveAction,
-						},
+            {
+                // name: "",
+                // field: "Deactive",
+                name: "action",
+                title: "",
+                width: "0%",
+                align:"center",
+                render: this.DeactiveAction,
+            },
             {
               title: "Concession Type",
               field: "concessionType",
@@ -132,6 +143,40 @@ class ManageCategoryData extends Component {
         this.setState({selectedClass:"", isModalVisible: false})
     }
 
+// ======================================= coding part =======================================
+    handleChanges = (event) => {
+        const { name, value } = event.target;
+        if(name == "concessionPercent"){
+            this.setState({
+                concessionPercent: value == "amount"?false:true
+            })
+        } else {
+            this.setState({
+                [name]: value
+            })
+        }
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let {
+            concessionType,
+            concessionPercent,
+            concessionAmount
+        } = this.state
+        if(this.validator.allValid()){
+            this.validator.hideMessages();
+            this.props.createConcession({
+                concessionType,
+                concessionPercent,
+                concessionAmount
+            })
+        } else {
+            this.validator.showMessages();
+        }
+    }
+// ======================================= /coding part/ =====================================
+
     render() {
         return(
             <div>
@@ -142,7 +187,7 @@ class ManageCategoryData extends Component {
                     <div className="col-lg-12 grid-margin stretch-card">    
                         <div className="card">
                             <div className="card-body">
-                                <form className="forms-sample">
+                                <form onSubmit={this.handleSubmit} className="forms-sample">
 								{/* =================================== create concession============================== */}
 									<h4 className="card-title">Create Concession</h4>
                                     <div className="row">
@@ -150,19 +195,20 @@ class ManageCategoryData extends Component {
                                             <Form.Group className="row">
                                             <label className="col-sm-12 col-form-label">Concession Type<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-12">
-                                                <Form.Control  type="text" />
+                                                <Form.Control  type="text" name="concessionType" onChange={this.handleChanges} value={this.state.concessionType} />
                                             </div>
+                                            {this.validator.message('concessionType', this.state.concessionType, 'required', {className:"text-danger"})}
                                             </Form.Group>
                                         </div>
                                         <div className="col-md-4">
                                             <Form.Group className="row">
                                                 <label className="col-sm-12 col-form-label">Concession Type<span style={this.state.startstyle}>*</span></label>
                                                 <label className="col-sm-6 col-form-label">
-                                                <input type="radio" className="form-check-input mt-0 col-sm-10" name="optionsRadios" id="optionsRadios2" value="option2" defaultChecked/>
+                                                <input type="radio" className="form-check-input mt-0 col-sm-10" onChange={this.handleChanges} name="concessionPercent" value="percentage" checked={this.state.concessionPercent}/>
                                                 <i className="input-helper"></i>
                                                 Percent
                                                 </label><label className="col-sm-6 col-form-label">
-                                                <input type="radio" className="form-check-input  mt-0 col-sm-10" name="optionsRadios" id="optionsRadios2" value="option2" defaultChecked/>
+                                                <input type="radio" className="form-check-input  mt-0 col-sm-10" onChange={this.handleChanges} name="concessionPercent" value="amount" checked={!this.state.concessionPercent}/>
                                                 <i className="input-helper"></i>
                                                 Amount
                                                 </label>
@@ -173,8 +219,9 @@ class ManageCategoryData extends Component {
                                             <Form.Group className="row">
                                             <label className="col-sm-12 col-form-label">Concession Amount<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-12">
-                                                <Form.Control  type="text" />
+                                                <Form.Control name="concessionAmount" onChange={this.handleChanges} value={this.state.concessionAmount} type="text" />
                                             </div>
+                                            {this.validator.message('concessionAmount', this.state.concessionAmount, 'required', {className:"text-danger"})}
                                             </Form.Group>
                                         </div>
                                         <div className="col-md-2 mt-5">
@@ -207,10 +254,32 @@ class ManageCategoryData extends Component {
                             />
                         </div>
                     </div>
-								</div>
+				</div>
             </div>
         )
     }
 }
 
-export default ManageCategoryData;
+const mapStateToProps = (state) => {
+
+    console.log(state)
+    
+    return {
+        error: state.concessions.error,
+        success: state.concessions.success,
+        msg: state.concessions.msg,
+        list: state.concessions.concessionList,
+        selectedConcession: state.concessions.selectedConcession
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getConcessionList: () => dispatch(actions.getConcession()),
+        createConcession: (data) => dispatch(actions.createConcession(data)),
+        editConcession: (data) => dispatch(actions.editConcession(data)),
+        deleteConcession: (id) => dispatch(actions.deleteConcession(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageCategoryData);

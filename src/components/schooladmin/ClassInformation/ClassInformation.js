@@ -66,7 +66,27 @@ class ClassInformation extends Component {
                 </ReactTooltip>
                 <button data-tip data-for="subjects" onClick={() => this.setState({selectedClass:props.classes, isModalVisible: !this.state.isModalVisible})} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                     <i className="mdi mdi-link-variant" style={{fontSize:'17px'}}></i>
-                </button>    
+                </button> 
+                <Link style={{
+                    border: 'solid 1px #ff8800',
+                    borderRadius: '12px',
+                    padding: '2px 5px'
+                }}><i className="mdi mdi-close-circle" style={{fontSize:'17px', color:'red'}}></i> english</Link>,
+                <Link style={{
+                    border: 'solid 1px #ff8800',
+                    borderRadius: '12px',
+                    padding: '2px 5px'
+                }}><i className="mdi mdi-close-circle" style={{fontSize:'17px', color:'red'}}></i> hindi</Link>,
+                <Link style={{
+                    border: 'solid 1px #ff8800',
+                    borderRadius: '12px',
+                    padding: '2px 5px'
+                }}><i className="mdi mdi-close-circle" style={{fontSize:'17px', color:'red'}}></i> maths</Link>,
+                <Link style={{
+                    border: 'solid 1px #ff8800',
+                    borderRadius: '12px',
+                    padding: '2px 5px'
+                }}><i className="mdi mdi-close-circle" style={{fontSize:'17px', color:'red'}}></i> science</Link>
             </span>
         )
     }
@@ -76,6 +96,7 @@ class ClassInformation extends Component {
             {
               title: "Classes",
               field: "classes",
+              width: "0%",
             },
             {
               title: "Subjects",
@@ -85,6 +106,7 @@ class ClassInformation extends Component {
             {
               name: "action",
               title: "Actions ",
+              width: "0%",
               render: this.renderAction,
             },
         ];
@@ -166,6 +188,16 @@ class ClassInformation extends Component {
         </Modal.Header>
         <div className="card">
             <div className="card-body">
+                <Form.Group className="row">
+                    <label className="col-sm-3 col-form-label">Add more Subjects<span style={this.state.startstyle}>*</span></label>
+                    <div className="col-sm-9">
+                        <select className="form-control">
+                            <option>Punjabi</option>
+                            <option>Science</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </Form.Group>
                 <form>
                     <div className="row">
                         <div className="col-sm-6">
