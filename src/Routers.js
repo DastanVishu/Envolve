@@ -29,6 +29,8 @@ import SubmitStudentFee from './components/schooladmin/ManageFeeData/SubmitStude
 import AddBusRoute from './components/schooladmin/ManageBusData/AddBusRoute';
 import ManageCategoryData from './components/schooladmin/MasterData/ManageCategoryData';
 import ManageHolidaysData from './components/schooladmin/MasterData/ManageHolidaysData';
+import ManageExamSchedule from './components/schooladmin/ExamSchedule/ManageExamSchedule';
+import AddExamSchedule from './components/schooladmin/ExamSchedule/AddExamSchedule';
 
 // auth
 import Login from './components/auth/Login';
@@ -70,6 +72,8 @@ class Routers extends Component {
 					<Route path="/admin/masterdata/category" component={ManageCategoryData} />
           <Route path="/admin/masterdata/concession" component={ManageConcessionData} />
 					<Route path="/admin/masterdata/holidays" component={ManageHolidaysData} />
+					<Route path="/admin/addexamschedule" component={AddExamSchedule} />
+					<Route path="/admin/manageexamschedule" component={ManageExamSchedule} />
 
           {/* auth */}
           <Route path="/login" component={Login} />

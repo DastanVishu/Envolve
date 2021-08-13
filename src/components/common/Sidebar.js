@@ -136,6 +136,12 @@ class Sidebar extends Component {
                 <span className="menu-title">Time Table</span>
               </Link>
             </li>
+						<li className={ this.isPathActive('/admin/manageexamschedule') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/manageexamschedule">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Exam Schedule</span>
+              </Link>
+            </li>
 						{/* ===================================== for master data route =============================== */}
 						<div className="dropdown-divider"></div>
             <li className="nav-item nav-category">Master - Data</li>
