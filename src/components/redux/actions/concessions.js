@@ -38,59 +38,87 @@ export const concessionTaskFail = (data = null) => {
     }
 }
 
+export const eraseMsg = () => {
+    return {
+        type: actionType.ERASED
+    }
+}
+
 export const getConcession = () => {
     return (dispatch) => {
-        axios.get(actionType.SITE_URL + '/api/schooladmin/getconcessions', {
-            header: {
+        axios.get('/api/schooladmin/getconcessions', {
+            headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         })
         .then((response) =>{
-            console.log(response)
-            // if(response.success){
-                
-            // } else {
-            //     dispatch(concessionTaskFail(response.msg))
-            // }
-        }).catch()
+            if(response.data.success){
+                dispatch(getConcessionSuccess(response.data.data))   
+            } else {
+                dispatch(concessionTaskFail(response.data.msg))
+            }
+        }).catch((err)=>{
+            dispatch(concessionTaskFail(err));
+        })
     } 
 }
 
 export const createConcession = (data) => {
     return (dispatch) => {
-        axios.post(actionType.SITE_URL + '/api/schooladmin/createconcession', data,{
-            header: {
+        axios.post('/api/schooladmin/createconcession', data,{
+            headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         })
         .then((response) => {
-            console.log(response)
-        }).catch()
+            if(response.data.success){
+                dispatch(addConcessionSuccess(response.data.msg))
+                dispatch(getConcession())
+            } else {
+                dispatch(concessionTaskFail(response.data.msg))
+            }
+        }).catch((err)=>{
+            dispatch(concessionTaskFail(err));
+        })
     }
 }
 
 export const editConcession = (data) => {
     return (dispatch) => {
-        axios.post(actionType.SITE_URL + '/api/schooladmin/updateconcession', data,{
-            header: {
+        axios.post('/api/schooladmin/updateconcession', data,{
+            headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         })
         .then((response)=>{
-            console.log(response)
-        }).catch()
+            if(response.data.success){
+                dispatch(editConcessionSuccess(response.data.msg))
+                dispatch(getConcession())
+            } else {
+                dispatch(concessionTaskFail(response.data.msg))
+            }
+        }).catch((err)=>{
+            dispatch(concessionTaskFail(err));
+        })
     }
 }
 
 export const deleteConcession = (data) => {
     return (dispatch) => {
-        axios.post(actionType.SITE_URL + '/api/schooladmin/deleteconcession', data,{
-            header: {
+        axios.post('/api/schooladmin/deleteconcession', { id: data },{
+            headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         })
         .then((response) => {
-            console.log(response)
-        }).catch()
+            if(response.data.success){
+                dispatch(deleteConcessionSuccess(response.data.msg))
+                dispatch(getConcession())
+            } else {
+                dispatch(concessionTaskFail(response.data.msg))
+            }
+        }).catch((err)=>{
+            dispatch(concessionTaskFail(err));
+        })
     }
 }

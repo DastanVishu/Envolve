@@ -9,11 +9,15 @@ import thunk from 'redux-thunk';
 
 import authReducer from "./components/redux/reducers/auth";
 import concessionsReducer from "./components/redux/reducers/concessions";
+import categoryReducer from "./components/redux/reducers/category";
+import subjectReducer from "./components/redux/reducers/subject"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   auth: authReducer,
-  concessions: concessionsReducer
+  concessions: concessionsReducer,
+  category: categoryReducer,
+  subject: subjectReducer
 });
 
 const store = createStore(

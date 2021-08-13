@@ -10,6 +10,7 @@ import ManageSchools from './components/superadmin/ManageSchools';
 // school admin
 import AdminDashboard from './components/schooladmin/Dashboard/AdminDashboard';
 import ClassInformation from './components/schooladmin/ClassInformation/ClassInformation';
+import TimeTable from './components/schooladmin/TimeTable/TimeTable';
 import ManageBusData from './components/schooladmin/ManageBusData/ManageBusData';
 import ManageFeeData from './components/schooladmin/MasterData/ManageFeeData';
 import ManageStaffData from './components/schooladmin/MnagageStaffData/ManageStaffData';
@@ -27,6 +28,7 @@ import StudentsFees from './components/schooladmin/ManageFeeData/StudentsFees';
 import SubmitStudentFee from './components/schooladmin/ManageFeeData/SubmitStudentFee';
 import AddBusRoute from './components/schooladmin/ManageBusData/AddBusRoute';
 import ManageCategoryData from './components/schooladmin/MasterData/ManageCategoryData';
+import ManageHolidaysData from './components/schooladmin/MasterData/ManageHolidaysData';
 
 // auth
 import Login from './components/auth/Login';
@@ -49,6 +51,7 @@ class Routers extends Component {
           {/* school admin */}
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/admin/classes" component={ClassInformation} />
+					<Route path="/admin/timetable" component={TimeTable} />
           <Route path="/admin/students" component={ManageStudentData} />
 					<Route path="/admin/addstudent" component={AddStudent} />
           <Route path="/admin/masterdata/feedata" component={ManageFeeData} />
@@ -66,6 +69,7 @@ class Routers extends Component {
 					<Route path="/admin/addbusroute" component={AddBusRoute} />
 					<Route path="/admin/masterdata/category" component={ManageCategoryData} />
           <Route path="/admin/masterdata/concession" component={ManageConcessionData} />
+					<Route path="/admin/masterdata/holidays" component={ManageHolidaysData} />
 
           {/* auth */}
           <Route path="/login" component={Login} />

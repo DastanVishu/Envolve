@@ -3,7 +3,7 @@ import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
-import * as actions from '../../redux/actions/concessions'
+import * as actions from '../../redux/actions/concessions';
 import SimpleReactValidator from 'simple-react-validator';
 import { ToastContainer, toast } from "react-toastify";
 import { connect } from 'react-redux';
@@ -22,6 +22,7 @@ class ManageCategoryData extends Component {
           isModalVisible: false,
           selectedClass: '',
 
+          _id:"",
           concessionType:"",
           concessionPercent:true,
           concessionAmount:""
@@ -33,24 +34,33 @@ class ManageCategoryData extends Component {
 
     componentDidMount(){
         this.props.getConcessionList()
-        let re = [
-          {
-            _id: 1,
-            concessionType:'Type1',
-            concessionId:'CID001',
-            concession:'20%',
-            students:'10',
-          },
-          {
-            _id: 2,
-            concessionType:'Type2',
-            concessionId:'CID002',
-            concession:'Rs. 500',
-            students:'20',
-          }
-        ];
-        this.setState({records: re})
-				
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({ records: nextProps.list})
+
+        if(nextProps.error){
+            toast.error(nextProps.msg.toString(), {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        } else if(nextProps.success && nextProps.msg){
+            toast.success(nextProps.msg.toString(), {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
+        nextProps.eraseMsg()
     }
 		
     renderAction = (props) => {
@@ -60,7 +70,7 @@ class ManageCategoryData extends Component {
               <ReactTooltip id='Edit' type='warning' effect='solid'>
                 <span>Edit</span>
               </ReactTooltip>
-                <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+                <button onClick={ ()=> this.editConcession(props)} data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                     <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
                 </button>
                 
@@ -68,7 +78,7 @@ class ManageCategoryData extends Component {
                 <span>Delete</span>
               </ReactTooltip>
               
-                <button data-tip data-for="Delete" type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
+                <button onClick={() => this.props.deleteConcession(props._id)} data-tip data-for="Delete" type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
                     <i className="mdi mdi-delete"style={{fontSize:'17px'}}></i>
                 </button>
             </span>
@@ -92,6 +102,21 @@ class ManageCategoryData extends Component {
         )
     }
 
+    editConcession = (props) => {
+        let {
+            _id,
+            concessionType,
+            concessionPercent,
+            concessionAmount
+        } = props
+        this.setState({
+            _id,
+            concessionType,
+            concessionPercent,
+            concessionAmount
+        })
+    }
+
     ShowSubjects = (props) => {
         console.log(props)
         return(
@@ -100,6 +125,12 @@ class ManageCategoryData extends Component {
                     <i className="mdi mdi-link-variant" style={{fontSize:'17px'}}></i>
                 </button>    
             </span>
+        )
+    }
+
+    PercentOrNot = (props) => {
+        return(
+            props.concessionPercent? props.concessionAmount +"%": props.concessionAmount
         )
     }
 
@@ -120,11 +151,11 @@ class ManageCategoryData extends Component {
             },
             {
               title: "Concession Id",
-              field: "concessionId",
+              field: "_id",
             },
 						{
               title: "Concession",
-              field: "concession",
+              render: this.PercentOrNot
             },
 						{
               title: "Students",
@@ -160,20 +191,40 @@ class ManageCategoryData extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         let {
+            _id,
             concessionType,
             concessionPercent,
             concessionAmount
         } = this.state
         if(this.validator.allValid()){
             this.validator.hideMessages();
-            this.props.createConcession({
-                concessionType,
-                concessionPercent,
-                concessionAmount
-            })
+            if(this.state._id){
+                this.props.editConcession({
+                    _id,
+                    concessionType,
+                    concessionPercent,
+                    concessionAmount
+                })
+            } else {
+                this.props.createConcession({
+                    concessionType,
+                    concessionPercent,
+                    concessionAmount
+                })
+            }
+            this.cleanFields()
         } else {
             this.validator.showMessages();
         }
+    }
+
+    cleanFields = () => {
+        this.setState({
+            _id:"",
+            concessionType:"",
+            concessionPercent:true,
+            concessionAmount:""
+        })
     }
 // ======================================= /coding part/ =====================================
 
@@ -225,7 +276,7 @@ class ManageCategoryData extends Component {
                                             </Form.Group>
                                         </div>
                                         <div className="col-md-2 mt-5">
-                                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Add</button>
+                                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>{this.state._id?"Update":"Add"}</button>
                                         </div>
                                     </div>
 
@@ -256,14 +307,12 @@ class ManageCategoryData extends Component {
                     </div>
 				</div>
             </div>
+        
         )
     }
 }
 
 const mapStateToProps = (state) => {
-
-    console.log(state)
-    
     return {
         error: state.concessions.error,
         success: state.concessions.success,
@@ -278,7 +327,8 @@ const mapDispatchToProps = (dispatch) => {
         getConcessionList: () => dispatch(actions.getConcession()),
         createConcession: (data) => dispatch(actions.createConcession(data)),
         editConcession: (data) => dispatch(actions.editConcession(data)),
-        deleteConcession: (id) => dispatch(actions.deleteConcession(id))
+        deleteConcession: (id) => dispatch(actions.deleteConcession(id)),
+        eraseMsg: () => dispatch(actions.eraseMsg())
     }
 }
 

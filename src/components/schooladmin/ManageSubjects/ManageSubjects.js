@@ -3,43 +3,114 @@ import MaterialTable from "material-table";
 import { Form, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
+import * as actions from '../../redux/actions/subject';
+import SimpleReactValidator from 'simple-react-validator';
+import { ToastContainer, toast } from "react-toastify";
+import { connect } from 'react-redux';
 
 class ManageSubjects extends Component {
     constructor(props){
-        super(props);
-        this.state = {
-          records: [],
-          tooltipOpen: false,
-          startstyle: {
-            color: 'red',
-            fontSize: '14px'
-          },
-          isModalVisible: false,
-          selectedClass: '',
-        }
+      super(props);
+      this.state = {
+        records: [],
+        tooltipOpen: false,
+        startstyle: {
+          color: 'red',
+          fontSize: '14px'
+        },
+        isModalVisible: false,
+        selectedClass: '',
+
+        _id:"",
+        subjectName:""
+      }
+      this.validator = new SimpleReactValidator({autoForceUpdate: this})
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChanges = this.handleChanges.bind(this);
     }
 
     componentDidMount(){
-        let re = [
-          {
-            _id: 1,
-            subject: 'science'
-          },
-          {
-            _id: 2,
-            subject:'english'
-          },
-          {
-            _id: 3,
-            subject:'hindi'
-          },
-          {
-            _id: 4,
-            subject:'maths'
-          }
-        ];
-        this.setState({records: re})
+      this.props.getSubjectList();
     }
+
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps.list)
+    this.setState({ records: nextProps.list})
+
+    if(nextProps.error){
+      toast.error(nextProps.msg.toString(), {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if(nextProps.success && nextProps.msg){
+        toast.success(nextProps.msg.toString(), {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+    }
+    nextProps.eraseMsg()
+  }
+
+      // ======================================= coding part =======================================
+      handleChanges = (event) => {
+        const { name, value } = event.target;
+            this.setState({
+                [name]: value
+            })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let {
+            _id,
+            subjectName
+        } = this.state
+        if(this.validator.allValid()){
+            this.validator.hideMessages();
+            if(this.state._id){
+                this.props.editSubject({
+                    _id,
+                    subjectName
+                })
+            } else {
+                this.props.createSubject({
+                  subjectName
+                })
+            }
+            this.cleanFields()
+        } else {
+            this.validator.showMessages();
+        }
+    }
+
+    cleanFields = () => {
+        this.setState({
+            _id:"",
+            subjectName:""
+        })
+    }
+    
+    editSubject = (props) => {
+      let {
+          _id,
+          subjectName
+      } = props
+      this.setState({
+          _id,
+          subjectName
+      })
+    }
+    // ===================================/ coding part /=======================================
 
     renderAction = (props) => {
     
@@ -48,7 +119,7 @@ class ManageSubjects extends Component {
               <ReactTooltip id='Edit' type='warning' effect='solid'>
                 <span>Edit</span>
               </ReactTooltip>
-                <button data-tip data-for="Edit" type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
+                <button data-tip data-for="Edit" onClick={ ()=> this.editSubject(props)} type="button" className="btn btn-outline-warning" style={{padding:'8px'}}>
                     <i className="mdi mdi-border-color" style={{fontSize:'17px'}}></i>
                 </button>
                 
@@ -56,7 +127,7 @@ class ManageSubjects extends Component {
                 <span>Delete</span>
               </ReactTooltip>
               
-                <button data-tip data-for="Delete" type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
+                <button data-tip data-for="Delete" onClick={() => this.props.deleteSubject(props._id)} type="button" className="btn btn-outline-danger" style={{padding:'8px'}}>
                     <i className="mdi mdi-delete"style={{fontSize:'17px'}}></i>
                 </button>
             </span>
@@ -68,7 +139,7 @@ class ManageSubjects extends Component {
         const fields = [
             {
               title: "Subjects",
-              field: "subject",
+              field: "subjectName",
             },
             {
               name: "action",
@@ -89,18 +160,19 @@ class ManageSubjects extends Component {
                     <div className="col-lg-12 grid-margin stretch-card">    
                         <div className="card">
                             <div className="card-body">
-                                <form className="forms-sample">
+                                <form onSubmit={this.handleSubmit} className="forms-sample">
                                     <div className="row">
                                         <div className="col-md-9">
                                             <Form.Group className="row">
                                             <label className="col-sm-2 col-form-label">Subject<span style={this.state.startstyle}>*</span></label>
                                             <div className="col-sm-10">
-                                                <Form.Control  type="text" />
+                                                <Form.Control type="text" name="subjectName" onChange={this.handleChanges} value={this.state.subjectName} />
+                                                {this.validator.message('subjectName', this.state.subjectName, 'required', {className:"text-danger"})}
                                             </div>
                                             </Form.Group>
                                         </div>
                                         <div className="col-md-3">
-                                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>Add</button>
+                                        <button type="submit" className="btn btn-primary ml-2 btn-fw" style={{lineHeight:1.5}}>{this.state._id?"Update":"Add"}</button>
                                         </div>
                                     </div>
 
@@ -134,4 +206,24 @@ class ManageSubjects extends Component {
     }
 }
 
-export default ManageSubjects;
+const mapStateToProps = (state) => {
+  return {
+      error: state.subject.error,
+      success: state.subject.success,
+      msg: state.subject.msg,
+      list: state.subject.SubjectList,
+      selectedSubject: state.subject.selectedSubject
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      getSubjectList: () => dispatch(actions.getSubject()),
+      createSubject: (data) => dispatch(actions.createSubject(data)),
+      editSubject: (data) => dispatch(actions.editSubject(data)),
+      deleteSubject: (id) => dispatch(actions.deleteSubject(id)),
+      eraseMsg: () => dispatch(actions.eraseMsg())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageSubjects);

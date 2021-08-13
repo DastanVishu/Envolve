@@ -38,12 +38,19 @@ const reducer = (state = initial_state, action) => {
                 success: true,
                 msg: action.msg
             }
-        case actionType.DELETE_CONCESSION_SUCCESS:
+        case actionType.CONCESSION_TASK_FAIL:
             return{
                 ...state,
                 error: true,
                 success: false,
                 msg: action.msg
+            }
+        case actionType.ERASED:
+            return{
+                ...state,
+                error: null,
+                success: null,
+                msg: ""
             }
         default:
             return state;

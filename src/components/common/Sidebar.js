@@ -130,6 +130,12 @@ class Sidebar extends Component {
                 <span className="menu-title">Access Levels</span>
               </Link>
             </li>
+						<li className={ this.isPathActive('/admin/timetalbe') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/timetable">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title">Time Table</span>
+              </Link>
+            </li>
 						{/* ===================================== for master data route =============================== */}
 						<div className="dropdown-divider"></div>
             <li className="nav-item nav-category">Master - Data</li>
@@ -155,6 +161,12 @@ class Sidebar extends Component {
               <Link className="nav-link" to="/admin/masterdata/feedata">
                 <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span className="menu-title"> Fee Data</span>
+              </Link>
+            </li>
+						<li className={ this.isPathActive('/admin/masterdata/holidays') ? 'nav-item active' : 'nav-item' }>
+              <Link className="nav-link" to="/admin/masterdata/holidays">
+                <span className="icon-bg"><i className="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span className="menu-title"> Holidays</span>
               </Link>
             </li>
             {/* ============================================================================================= */}

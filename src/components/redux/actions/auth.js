@@ -19,8 +19,8 @@ export const signIn = (userData) => {
     console.log("you clicked on signIn");
     if(userData.username && userData.password) {
         return (dispatch) => {
-            axios.post(actionType.SITE_URL + '/auth/login', userData, {
-                header: {
+            axios.post('/auth/login', userData, {
+                headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
             })
